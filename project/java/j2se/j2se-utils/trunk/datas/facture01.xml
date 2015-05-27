@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- Document facture xml. -->
+<facture date="09/10/2011" montant="112.00">
+  <client nom="rouault" prenom="gildas">1 quai de la garonne 75019 PARIS</client>
+  <article description="raquette" />
+  <article description="balle" />
+</facture>

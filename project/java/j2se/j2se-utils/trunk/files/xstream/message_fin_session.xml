@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MESSAGES_FIN_SESSION>
+	<MESSAGE TEXTE="La session se termine dans 1 minute" TEMPS="20"/>
+	<MESSAGE TEXTE="La session se termine" TEMPS="10"/>
+	<MESSAGE TEXTE="Session terminée" TEMPS="0"/>
+</MESSAGES_FIN_SESSION>
