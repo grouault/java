@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" skipped="0" tests="2" time="0.01" failures="0" name="fr.exagone.xstream.bean.TestPosteSession">
+  <properties>
+    <property value="Java(TM) 2 Runtime Environment, Standard Edition" name="java.runtime.name"/>
+    <property value="C:\Program Files (x86)\Java\jdk1.5.0_22\jre\bin" name="sun.boot.library.path"/>
+    <property value="1.5.0_22-b03" name="java.vm.version"/>
+    <property value="Sun Microsystems Inc." name="java.vm.vendor"/>
+    <property value="http://java.sun.com/" name="java.vendor.url"/>
+    <property value=";" name="path.separator"/>
+    <property value="Java HotSpot(TM) Client VM" name="java.vm.name"/>
+    <property value="sun.io" name="file.encoding.pkg"/>
+    <property value="FR" name="user.country"/>
+    <property value="SUN_STANDARD" name="sun.java.launcher"/>
+    <property value="Service Pack 1" name="sun.os.patch.level"/>
+    <property value="Java Virtual Machine Specification" name="java.vm.specification.name"/>
+    <property value="D:\devs\tools\workspaces\juno\j2se\general-project\utils-project" name="user.dir"/>
+    <property value="1.5.0_22-b03" name="java.runtime.version"/>
+    <property value="sun.awt.Win32GraphicsEnvironment" name="java.awt.graphicsenv"/>
+    <property value="D:\devs\tools\workspaces\juno\j2se\general-project\utils-project" name="basedir"/>
+    <property value="C:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\endorsed" name="java.endorsed.dirs"/>
+    <property value="x86" name="os.arch"/>
+    <property value="D:\devs\tools\workspaces\juno\j2se\general-project\utils-project\target\surefire\surefirebooter1240873657441984575.jar" name="surefire.real.class.path"/>
+    <property value="C:\Users\gildas\AppData\Local\Temp\" name="java.io.tmpdir"/>
+    <property value="
+" name="line.separator"/>
+    <property value="Sun Microsystems Inc." name="java.vm.specification.vendor"/>
+    <property value="" name="user.variant"/>
+    <property value="Windows 7" name="os.name"/>
+    <property value="Cp1252" name="sun.jnu.encoding"/>
+    <property value="C:\Program Files (x86)\Java\jdk1.5.0_22\jre\bin;.;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\devs\tools\logiciel\sgbd\oracle\client\x64\instantclient_10_2;% TNS_ADMIN%;D:\devs\tools\java\apache-ant\apache-ant-1.8.4\bin;" name="java.library.path"/>
+    <property value="D:\devs\tools\workspaces\juno\j2se\general-project\utils-project\target\test-classes;D:\devs\tools\workspaces\juno\j2se\general-project\utils-project\target\classes;d:\maven\repository\junit\junit\4.10\junit-4.10.jar;d:\maven\repository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;d:\maven\repository\log4j\log4j\1.2.14\log4j-1.2.14.jar;d:\maven\repository\com\thoughtworks\xstream\xstream\1.4.2\xstream-1.4.2.jar;d:\maven\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar;d:\maven\repository\xpp3\xpp3_min\1.1.4c\xpp3_min-1.1.4c.jar;d:\maven\repository\org\codehaus\jackson\jackson-mapper-asl\1.8.5\jackson-mapper-asl-1.8.5.jar;d:\maven\repository\org\codehaus\jackson\jackson-core-asl\1.8.5\jackson-core-asl-1.8.5.jar;" name="surefire.test.class.path"/>
+    <property value="Java Platform API Specification" name="java.specification.name"/>
+    <property value="49.0" name="java.class.version"/>
+    <property value="HotSpot Client Compiler" name="sun.management.compiler"/>
+    <property value="6.1" name="os.version"/>
+    <property value="C:\Users\gildas" name="user.home"/>
+    <property value="Europe/Paris" name="user.timezone"/>
+    <property value="sun.awt.windows.WPrinterJob" name="java.awt.printerjob"/>
+    <property value="1.5" name="java.specification.version"/>
+    <property value="Cp1252" name="file.encoding"/>
+    <property value="gildas" name="user.name"/>
+    <property value="D:\devs\tools\workspaces\juno\j2se\general-project\utils-project\target\test-classes;D:\devs\tools\workspaces\juno\j2se\general-project\utils-project\target\classes;d:\maven\repository\junit\junit\4.10\junit-4.10.jar;d:\maven\repository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;d:\maven\repository\log4j\log4j\1.2.14\log4j-1.2.14.jar;d:\maven\repository\com\thoughtworks\xstream\xstream\1.4.2\xstream-1.4.2.jar;d:\maven\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar;d:\maven\repository\xpp3\xpp3_min\1.1.4c\xpp3_min-1.1.4c.jar;d:\maven\repository\org\codehaus\jackson\jackson-mapper-asl\1.8.5\jackson-mapper-asl-1.8.5.jar;d:\maven\repository\org\codehaus\jackson\jackson-core-asl\1.8.5\jackson-core-asl-1.8.5.jar;" name="java.class.path"/>
+    <property value="1.0" name="java.vm.specification.version"/>
+    <property value="32" name="sun.arch.data.model"/>
+    <property value="C:\Program Files (x86)\Java\jdk1.5.0_22\jre" name="java.home"/>
+    <property value="Sun Microsystems Inc." name="java.specification.vendor"/>
+    <property value="fr" name="user.language"/>
+    <property value="sun.awt.windows.WToolkit" name="awt.toolkit"/>
+    <property value="mixed mode, sharing" name="java.vm.info"/>
+    <property value="1.5.0_22" name="java.version"/>
+    <property value="C:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\ext" name="java.ext.dirs"/>
+    <property value="C:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\rt.jar;C:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\i18n.jar;C:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\sunrsasign.jar;C:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.5.0_22\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.5.0_22\jre\classes" name="sun.boot.class.path"/>
+    <property value="Sun Microsystems Inc." name="java.vendor"/>
+    <property value="d:\maven\repository" name="localRepository"/>
+    <property value="\" name="file.separator"/>
+    <property value="http://java.sun.com/cgi-bin/bugreport.cgi" name="java.vendor.url.bug"/>
+    <property value="little" name="sun.cpu.endian"/>
+    <property value="UnicodeLittle" name="sun.io.unicode.encoding"/>
+    <property value="windows" name="sun.desktop"/>
+    <property value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86" name="sun.cpu.isalist"/>
+  </properties>
+  <testcase classname="fr.exagone.xstream.bean.TestPosteSession" time="0.01" name="TestToXml"/>
+  <testcase classname="fr.exagone.xstream.bean.TestPosteSession" time="0" name="TestFromXml">
+    <error type="java.io.FileNotFoundException" message="D:\devs\workspaces\helios\content-server\files-project\files\xstream\poste-sessions.xml (Le chemin d’accès spécifié est introuvable)">java.io.FileNotFoundException: D:\devs\workspaces\helios\content-server\files-project\files\xstream\poste-sessions.xml (Le chemin d’accès spécifié est introuvable)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:106)
+	at fr.exagone.xstream.bean.TestPosteSession.TestFromXml(TestPosteSession.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:35)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:146)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:97)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:592)
+	at org.apache.maven.surefire.booter.ProviderFactory$ClassLoaderProxy.invoke(ProviderFactory.java:103)
+	at $Proxy0.invoke(Unknown Source)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:145)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcess(SurefireStarter.java:87)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
+</error>
+  </testcase>
+</testsuite>

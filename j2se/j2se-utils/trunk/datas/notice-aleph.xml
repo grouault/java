@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <leader>00897nam  22002773i 45</leader>
+  <support>Livre</support>
+  <statutnotice>nouvelle</statutnotice>
+  <controlfield991>BK</controlfield991>
+  <controlfield001>MVIL00169132</controlfield001>
+  <controlfield005>20031007145111.0</controlfield005>
+  <modifieddate>20031007</modifieddate>
+  <controlfield992>000124999</controlfield992>
+  <datafield010>
+    <datafield010a>2-7404-1006-9</datafield010a>2-7404-1006-9</datafield010>
+  <createddate>20011128</createddate>
+  <datafield100>
+    <datafield100a>20011128d2000^^^^^^^y0frey0103^^^^ba</datafield100a>20011128d2000^^^^^^^y0frey0103^^^^ba</datafield100>
+  <datafield101>
+    <datafield101a>fre</datafield101a>
+    <datafield101c>eng</datafield101c>fre , eng</datafield101>
+  <datafield102>
+    <datafield102a>FR</datafield102a>FR</datafield102>
+  <datafield105>
+    <datafield105a>a^^^^^^^000yy</datafield105a>a^^^^^^^000yy</datafield105>
+  <datafield106>
+    <datafield106a>r</datafield106a>r</datafield106>
+  <datafield200>
+    <datafield200a_sort>Georges à la chocolaterie</datafield200a_sort>
+    <datafield200a_nonsort>Georges à la chocolaterie</datafield200a_nonsort>
+    <datafield200a>Georges à la chocolaterie</datafield200a>
+    <datafield200f>Margret et H. A. Rey</datafield200f>Georges à la chocolaterie , Margret et H. A. Rey</datafield200>
+  <datedebut>2000</datedebut>
+  <datefin>2000</datefin>
+  <datafield210>
+    <datafield210a>Paris</datafield210a>
+    <datafield210c>Mango Jeunesse</datafield210c>
+    <datafield210d>2000</datafield210d>Paris , Mango Jeunesse , 2000</datafield210>
+  <datafield215>
+    <datafield215a>24 p.</datafield215a>
+    <datafield215c>ill. en coul.</datafield215c>24 p. , ill. en coul.</datafield215>
+  <datafield454>
+    <datafield454t>Curious George goes to a chocolate factory</datafield454t>Curious George goes to a chocolate factory</datafield454>
+  <datafield689>
+    <datafield689a>JJ0</datafield689a>JJ0</datafield689>
+  <datafield700>
+    <datafield700a>Rey</datafield700a>
+    <datafield700b>H. A.</datafield700b>Rey , H. A.</datafield700>
+  <datafield701>
+    <datafield701a>Rey</datafield701a>
+    <datafield701b>Margret</datafield701b>Rey , Margret</datafield701>
+  <datafield801>
+    <datafield801a>FR</datafield801a>
+    <datafield801b>MEDVIL</datafield801b>FR , MEDVIL</datafield801>
+  <datafield904>
+    <datafield904a>LIVRE</datafield904a>LIVRE</datafield904>
+  <datafield990>
+    <datafield990a>Demande BN</datafield990a>Demande BN</datafield990>
+  <datafield998>
+    <datafield998a>L22</datafield998a>L22</datafield998>
+  <datafield966>
+    <datafield966l>JEUNE</datafield966l>
+    <datafield966m>PRET1</datafield966m>
+    <datafield966s>JJ0 REY M</datafield966s>
+    <datafield966c>1</datafield966c>
+    <datafield966p>40.00</datafield966p>
+    <datafield966b>39999004695217</datafield966b>
+    <datafield966n>pastille violette</datafield966n>39999004695217 , 1 , JEUNE , PRET1 , pastille violette , 40.00 , JJ0 REY M</datafield966>
+  <datafield966>
+    <datafield966l>JEUNE</datafield966l>
+    <datafield966m>PRET1</datafield966m>
+    <datafield966s>JJ0 REY M</datafield966s>
+    <datafield966c>2</datafield966c>
+    <datafield966p>40.00</datafield966p>
+    <datafield966b>39999004695209</datafield966b>39999004695209 , 2 , JEUNE , PRET1 , 40.00 , JJ0 REY M</datafield966>
+  <datafield966>
+    <datafield966l>JEUNE</datafield966l>
+    <datafield966m>PRET1</datafield966m>
+    <datafield966s>JJ0 REY M</datafield966s>
+    <datafield966c>3</datafield966c>
+    <datafield966p>40.00</datafield966p>
+    <datafield966b>39999004695191</datafield966b>39999004695191 , 3 , JEUNE , PRET1 , 40.00 , JJ0 REY M</datafield966>
+  <datafield966>
+    <datafield966l>JEUNE</datafield966l>
+    <datafield966m>PRET1</datafield966m>
+    <datafield966s>JJ0 REY M</datafield966s>
+    <datafield966c>4</datafield966c>
+    <datafield966p>40.00</datafield966p>
+    <datafield966b>39999004695183</datafield966b>39999004695183 , 4 , JEUNE , PRET1 , 40.00 , JJ0 REY M</datafield966>
+</record>
