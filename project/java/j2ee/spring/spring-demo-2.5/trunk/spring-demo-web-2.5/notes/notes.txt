@@ -1,0 +1,13 @@
+# insertion des tagslibs
+-- jstl
+-- spring
+
+# tiles
+
+# internationalisation
+spring:message et messageSource
+
+# exception-handler
+
+# Validator
+
