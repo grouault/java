@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="todo_lists_report" class="tudu.web.ShowTodoListsPdfView"/>
+
+	<bean id="backup" class="tudu.web.BackupTodoListView">
+		<property name="stylesheetLocation" value="/WEB-INF/xsl/backup.xsl"/>
+		<property name="todoListsManager" ref="todoListsManager"/>
+	</bean>
+</beans>

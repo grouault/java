@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!--
+	      Controllers
+	-->
+
+	<bean id="welcomeController" class="tudu.web.WelcomeController">
+		<property name="showTodosView" value="redirect:secure/showTodos.action"/>
+	</bean>
+
+	<bean id="registerController" class="tudu.web.RegisterController">
+		<property name="userManager" ref="userManager" />
+		<property name="formView" value="register"/>
+		<property name="successView" value="register_ok"/>
+		<!-- property name="validator" ref="registerValidator"/ -->
+		<property name="validator" ref="beanValidator"/>
+		<property name="commandName" value="register"/>
+		<property name="commandClass" value="tudu.web.bean.RegisterData"/>
+	</bean>
+	<!-- bean id="registerValidator" class="org.springmodules.validation.ValangValidatorFactoryBean">
+		<property name="valang"><value><![CDATA[
+			{ login : ? is null  : 'Login is a required field.' }
+			{ password : ? is null : 'Password is a required field.' }
+			{ lastName : ? is null : 'LastName is a required field.' }
+			{ firstName : ? is null : 'firstName is a required field.' }
+		]]></value>
+		</property>
+	</bean -->
+	<bean id="registerValidator" class="tudu.web.validator.RegisterValidator"/>
+
+	<bean id="recoverController" class="tudu.web.RecoverPasswordController">
+		<property name="userManager" ref="userManager" />
+		<property name="formView" value="recover_password"/>
+		<property name="successView" value="recover_password_ok"/>
+		<!-- property name="validator" ref="recoverPasswordValidator"/ -->
+		<property name="validator" ref="beanValidator"/>
+		<property name="commandName" value="recover"/>
+		<property name="commandClass" value="tudu.web.bean.RecoverPasswordData"/>
+	</bean>
+	<bean id="recoverPasswordValidator" class="tudu.web.validator.RecoverPasswordValidator"/>
+
+	<bean id="logoutController" class="tudu.web.LogoutController"></bean>
+
+	<bean id="myInfoController" class="tudu.web.MyInfoController">
+		<property name="userManager" ref="userManager" />
+		<property name="formView" value="user_info"/>
+		<!-- property name="validator" ref="userInfoValidator"/ -->
+		<property name="validator" ref="beanValidator"/>
+		<property name="commandName" value="userinfo"/>
+		<property name="commandClass" value="tudu.web.bean.UserInfoData"/>
+	</bean>
+	<bean id="userInfoValidator" class="tudu.web.validator.UserInfoValidator"/>
+
+	<bean id="showTodoListsController" class="tudu.web.ShowTodoListsController"/>
+
+	<bean id="showTodoListsReportController" class="tudu.web.ShowTodoListsReportController">
+		<property name="todoListsManager" ref="todoListsManager" />
+	</bean>
+
+	<bean id="showTodosController" class="tudu.web.ShowTodosController">
+		<property name="userManager" ref="userManager" />
+	</bean>
+
+	<bean id="backupTodoListController" class="tudu.web.BackupTodoListController">
+		<property name="todoListsManager" ref="todoListsManager" />
+	</bean>
+
+	<bean id="restoreTodoListController" class="tudu.web.RestoreTodoListController">
+		<property name="todoListsManager" ref="todoListsManager" />
+		<property name="formView" value="restore"/>
+		<property name="successView" value="redirect:showTodos.action"/>
+		<property name="commandName" value="restore"/>
+		<property name="commandClass" value="tudu.web.bean.RestoreData"/>
+	</bean>
+
+	<bean id="showRssFeedAction" class="tudu.web.ShowRssFeedController">
+		<property name="todoListsManager" ref="todoListsManager" />
+	</bean>
+
+	<bean id="administrationController" class="tudu.web.AdministrationController">
+		<property name="configurationManager" ref="configurationManager" />
+		<property name="formView" value="administration"/>
+		<!-- property name="successView" value="administration_ok"/ -->
+		<!-- property name="validator" ref="userInfoValidator"/ -->
+		<property name="commandName" value="administration"/>
+		<property name="commandClass" value="tudu.web.bean.AdministrationData"/>
+	</bean>
+
+    <bean id="dwrController" class="org.springframework.web.servlet.mvc.ServletWrappingController">
+        <property name="servletClass" value="uk.ltd.getahead.dwr.DWRServlet"/>
+        <property name="initParameters">
+            <props>
+                <prop key="debug">true</prop>
+            </props>
+        </property>
+    </bean>
+
+	<!--
+	      Handler mappings
+	-->
+	<bean id="jamonInterceptor" class="tudu.web.interceptor.JAMonInterceptor"/>
+
+	<bean id="handlerMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="jamonInterceptor"/>
+            </list>
+        </property>
+		<property name="mappings">
+			<props>
+				<prop key="/welcome.action">welcomeController</prop>
+				<prop key="/register.action">registerController</prop>
+				<prop key="/recoverPassword.action">recoverController</prop>
+				<prop key="/logout.action">logoutController</prop>
+				<prop key="/secure/myInfo.action">myInfoController</prop>
+				<prop key="/secure/showTodoLists.action">showTodoListsController</prop>
+				<prop key="/secure/showTodoListsReport.action">showTodoListsReportController</prop>
+				<prop key="/secure/showTodos.action">showTodosController</prop>
+				<prop key="/secure/backupTodoList.action">backupTodoListController</prop>
+				<prop key="/secure/restoreTodoList.action">restoreTodoListController</prop>
+				<prop key="/rss/showRssFeed.action">showRssFeedAction</prop>
+				<prop key="/secure/admin/administration.action">administrationController</prop>
+				<!-- prop key="/secure/dwr/*.js">dwrController</prop>
+				<prop key="/secure/dwr/interface/*.js">dwrController</prop>
+				<prop key="/secure/dwr/exec/*.*">dwrController</prop -->
+				<prop key="/**/*.*">dwrController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!--
+	      Exception handling
+	-->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">error</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!--
+	      View resolvers
+	-->
+
+	<bean id="viewResolver1"
+		class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="order" value="1" />
+		<property name="basename" value="views" />
+	</bean>
+
+	<bean id="viewResolver2"
+		class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="order" value="2" />
+		<property name="location" value="/WEB-INF/views.xml" />
+	</bean>
+
+	<bean id="viewResolver3"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix">
+			<value>/WEB-INF/jsp/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	<!--
+	      Commons Validator
+	-->
+	
+	<bean id="validatorFactory" class="org.springmodules.commons.validator.DefaultValidatorFactory">
+		<property name="validationConfigLocations">
+			<list>
+				<value>/WEB-INF/validator-rules.xml</value>
+				<value>/WEB-INF/validation.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="beanValidator" class="org.springmodules.commons.validator.DefaultBeanValidator">
+		<property name="validatorFactory" ref="validatorFactory"/>
+	</bean>
+
+	<!--
+	      Struts Menu
+	-->
+	<bean id="menu" class="net.sf.navigator.menu.MenuLoader">
+		<property name="menuConfig">
+			<value>/WEB-INF/menu-config.xml</value>
+		</property>
+	</bean>
+
+	<!--
+	      File Upload
+	-->
+	<bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+</beans>

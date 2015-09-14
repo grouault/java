@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="jencks" class="org.jencks.JCAContainer">
+		<!-- lets use the default configuration of work manager and transaction	manager-->
+		<property name="bootstrapContext">
+			<bean class="org.jencks.factory.BootstrapContextFactoryBean">
+				<property name="threadPoolSize" value="25" />
+			</bean>
+		</property>
+
+		<!-- the JCA Resource Adapter -->
+		<property name="resourceAdapter">
+			<bean id="activeMQResourceAdapter" class="org.activemq.ra.ActiveMQResourceAdapter">
+				<property name="serverUrl" value="tcp://localhost:61616" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="inboundConnector" class="org.jencks.JCAConnector">
+		<property name="jcaContainer" ref="jencks" />
+
+		<!-- subscription details -->
+		<property name="activationSpec">
+    		<bean class="org.activemq.ra.ActiveMQActivationSpec">
+				<property name="destination" value="tudu.queue"/>
+				<property name="destinationType" value="javax.jms.Queue"/>
+			</bean>
+		</property>
+
+		<property name="ref" value="asynchTuduJmsListener"/>
+	</bean>
+
+	<bean id="asynchTuduJmsListener" class="tudu.jms.AsynchTuduJmsListener" singleton="true"/>
+
+</beans>

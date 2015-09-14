@@ -1,0 +1,148 @@
+
+/* basic elements */
+body {
+    background: #ffffff;
+    font-family: Verdana, Helvetica, Arial;
+    font-size: 80%;
+    margin: 10px;
+    padding: 0px;
+}
+	
+p { 
+	text-align: 	justify;
+	padding: 		5px 30px 5px 30px;
+	color: 			#786A47;
+	line-height: 	1.5em;
+}
+
+li { 
+	text-align: 	justify;
+	padding: 		0px 30px 5px 30px;
+	color: 			#786A47;
+	line-height: 	1.5em;
+}
+	
+a{
+	text-decoration: none;
+	background: 	transparent url(../images/dot.gif) repeat-x left bottom;
+}
+
+a:link ,a:visited {
+	color: 			#5785A4;
+}
+
+a:hover {
+	color: 			#1D8FDB;
+}
+
+input {
+	background: #EEEEFF;
+}
+
+table.list {
+    text-align: left;
+    border: 1px solid #808080;
+    border-collapse: collapse;
+    margin-top: 10px;
+    width: 100%;
+    background: white;
+}
+
+table.list td {
+    padding-left: 3px;
+}
+
+table.list th {
+    background-color: #8080FF;
+    padding: 2px;
+    padding-left: 3px;
+    border-bottom: 1px solid black;
+    text-align: left;
+    color: black;
+}
+
+table.list th table td {
+    text-align: left;
+}
+
+table.list th table td:hover, table.list th table td a:hover {
+    background-color: #ffd;
+}
+
+table.list th table tr:hover {
+    background-color: #ffd;
+    border: 1px solid white;
+}
+
+table.list tr.even {
+    text-align: left;
+    background: #eee;
+    border-top: 1px solid silver;
+}
+
+table.list tr.odd {
+    text-align: left;
+    background: white;
+    border-top: 1px solid silver;
+}
+
+table.list th a, table.list th a:visited {
+    background-color: transparent;
+    color: #000000;
+    text-decoration: none;
+}
+
+table.list th.sorted {
+    background-color: #eee;
+    color: #000000;
+}
+
+table.list th.sorted a, table.list th.sortable a {
+    background-position: right;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+table.list th.sortable:hover {
+    background-color: #ffd;
+}
+
+table.list thead tr {
+    background-color: #FFCC00;
+}
+
+table.list tr.even {
+    background: #EEEEEE;
+    border-top: 1px solid #C0C0C0;
+    color: #000000;
+}
+
+table.list tr.odd {
+    background: #FFFFFF;
+    border-top: 1px solid #C0C0C0;
+    color: #000000;
+}
+
+/* specific elements */
+.header {
+    font: 18px/1.3em Arial,Helvetica,sans-serif;
+}
+
+.footer {
+	text-align: right;
+	font: 10px/1.3em Arial,Helvetica,sans-serif;
+}
+
+.error {
+    color: #FF0000;
+}
+
+.success {
+	color: #FF0000;
+}
+
+.completed {
+	font-style: italic;
+	font-size: 80%;
+}
+

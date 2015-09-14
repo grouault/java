@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="todoListsDwr"
+		class="tudu.web.dwr.impl.TodoListsDwrImpl">
+		<property name="todoListsManager">
+			<ref bean="todoListsManager" />
+		</property>
+		<property name="userManager">
+			<ref bean="userManager" />
+		</property>
+	</bean>
+
+	<bean id="todosDwr" class="tudu.web.dwr.impl.TodosDwrImpl">
+		<property name="userManager">
+			<ref bean="userManager" />
+		</property>
+		<property name="todosManager">
+			<ref bean="todosManager" />
+		</property>
+		<property name="todoListsManager">
+			<ref bean="todoListsManager" />
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="tudu.domain.model.User" table="user">
+		<cache usage="read-write" />
+
+		<id name="login" column="login">
+			<generator class="assigned"></generator>
+		</id>
+
+		<property name="password" column="password" />
+
+		<property name="firstName" column="first_name" />
+
+		<property name="lastName" column="last_name" />
+
+		<property name="email" column="email" />
+
+		<property name="enabled" column="enabled" />
+
+		<property name="creationDate" column="creation_date" />
+
+		<property name="lastAccessDate" column="last_access_date" />
+
+		<set name="roles" table="user_role"  lazy="false" outer-join="true">
+			<cache usage="read-write" />
+			<key column="login" />
+			<many-to-many class="tudu.domain.model.Role" column="role" />
+		</set>
+
+		<set name="todoLists" 
+			 table="user_todo_list" 
+			 lazy="false" 
+			 inverse="true"
+			 outer-join="true">
+
+			<cache usage="read-write" />
+			<key column="login" />
+			<many-to-many class="tudu.domain.model.TodoList"
+				column="listId" />
+		</set>
+
+	</class>
+
+</hibernate-mapping>

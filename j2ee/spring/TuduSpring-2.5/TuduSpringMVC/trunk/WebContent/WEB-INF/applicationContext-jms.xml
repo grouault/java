@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="connectionFactory" class="org.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616"/>
+	</bean>
+
+	<bean id="template" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory"/>
+		<property name="defaultDestinationName" value="tudu.queue"/>
+	</bean>
+
+	<bean id="jmsInterceptor" class="tudu.jms.JmsInterceptor">
+		<property name="template" ref="template"/>
+	</bean>
+
+	<bean id="tuduJmsListener" class="tudu.jms.TuduJmsListener">
+		<property name="template" ref="template"/>
+	</bean>
+
+	<!-- bean id="asynchTuduJmsListener" class="tudu.jms.AsynchTuduJmsListener"/>
+
+	<bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory"/>
+		<property name="destinationName" value="tudu.queue"/>
+		<property name="messageListener" ref="asynchTuduJmsListener"/>
+	</bean -->
+</beans>
