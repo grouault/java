@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+		
+	<!-- traitement des requêtes. -->	
+	<bean id="urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="urlMap">
+			<map>
+				<!-- welcome-controller -->
+				<entry key="/home/welcome.do">
+					<ref local="welcomeController" />
+				</entry>
+				<entry key="/home/test.do">
+					<ref local="welcomeController" />
+				</entry>
+				<!-- customer controller -->
+				<entry key="/customer/customer-form.do">
+					<ref local="customerFormController" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!--  bean id="welcomeParamResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/home/welcome.do">welcome</prop>
+			</props>
+		</property>
+	</bean -->
+	
+	<!-- controller -->
+	<bean id="welcomeController" class="fr.exagone.spring25.controllers.WelcomeController">
+	</bean>
+	
+	<bean id="customerFormController" class="fr.exagone.spring25.controllers.CustomerFormController">
+		<property name="commandName" value="customerForm"/>
+		<property name="commandClass" value="fr.exagone.spring25.beans.Customer"/>	
+		<property name="formView" value="customer/customer-form"/>
+		<property name="successView" value="customer/customer-result"/>	
+		<property name="sessionForm" value="true" />
+	</bean>
+
+	<bean id="viewResolver"
+	      class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+          <property name="prefix">
+              <value>/WEB-INF/jsp/</value>
+           </property>
+          <property name="suffix">
+             <value>.jsp</value>
+          </property>
+    </bean>		
+		
+		
+</beans>
