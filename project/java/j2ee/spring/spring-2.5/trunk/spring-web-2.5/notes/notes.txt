@@ -1,3 +1,0 @@
-# insertion des tagslibs
--- jstl
--- spring
