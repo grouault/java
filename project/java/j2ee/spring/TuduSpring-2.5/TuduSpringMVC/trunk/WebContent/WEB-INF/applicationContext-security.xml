@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- ======================== FILTER CHAIN ======================= -->
+	<bean id="filterChainProxy"
+		class="net.sf.acegisecurity.util.FilterChainProxy">
+		<property name="filterInvocationDefinitionSource">
+			<value>
+				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				PATTERN_TYPE_APACHE_ANT
+				/secure/**=httpSessionContextIntegrationFilter,contextHolderAwareRequestFilter,rememberMeProcessingFilter,securityEnforcementFilter
+				/j_acegi_security_check*=httpSessionContextIntegrationFilter,authenticationProcessingFilter
+				/welcome.action=httpSessionContextIntegrationFilter,contextHolderAwareRequestFilter,rememberMeProcessingFilter
+			</value>
+		</property>
+	</bean>
+
+	<!-- ======================== AUTHENTICATION ======================= -->
+
+	<!-- Note the order that entries are placed against the objectDefinitionSource is critical.
+		The FilterSecurityInterceptor will work from the top of the list down to the FIRST pattern that matches the request URL.
+		Accordingly, you should place MOST SPECIFIC (ie a/b/c/d.*) expressions first, with LEAST SPECIFIC (ie a/.*) expressions last -->
+	<bean id="filterInvocationInterceptor"
+		class="net.sf.acegisecurity.intercept.web.FilterSecurityInterceptor">
+		<property name="authenticationManager">
+			<ref local="authenticationManager" />
+		</property>
+		<property name="accessDecisionManager">
+			<ref local="accessDecisionManager" />
+		</property>
+		<property name="objectDefinitionSource">
+			<value>
+				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				PATTERN_TYPE_APACHE_ANT
+				/secure/admin/**=ROLE_ADMIN
+				/secure/**=ROLE_USER
+			</value>
+		</property>
+	</bean>
+
+	<bean id="authenticationManager"
+		class="net.sf.acegisecurity.providers.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref local="daoAuthenticationProvider" />
+				<ref local="rememberMeAuthenticationProvider" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Automatically receives AuthenticationEvent messages from DaoAuthenticationProvider -->
+	<bean id="loggerListener"
+		class="net.sf.acegisecurity.providers.dao.event.LoggerListener" />
+
+	<bean id="daoAuthenticationProvider"
+		class="net.sf.acegisecurity.providers.dao.DaoAuthenticationProvider">
+		<property name="authenticationDao">
+			<ref local="authenticationDao" />
+		</property>
+		<property name="userCache">
+			<ref local="userCache" />
+		</property>
+	</bean>
+
+	<bean id="authenticationDao"
+		class="tudu.security.AuthenticationDAOImpl">
+		<property name="userManager">
+			<ref bean="userManager" />
+		</property>
+	</bean>
+
+	<bean id="userCache"
+		class="net.sf.acegisecurity.providers.dao.cache.EhCacheBasedUserCache">
+		<property name="cache">
+			<bean
+				class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+				<property name="cacheManager">
+					<bean
+						class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" />
+				</property>
+				<property name="cacheName">
+					<value>AcegiUserCache</value>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="rememberMeProcessingFilter"
+		class="net.sf.acegisecurity.ui.rememberme.RememberMeProcessingFilter">
+		<property name="rememberMeServices">
+			<ref local="rememberMeServices" />
+		</property>
+	</bean>
+
+	<bean id="rememberMeServices"
+		class="net.sf.acegisecurity.ui.rememberme.TokenBasedRememberMeServices">
+		<property name="authenticationDao">
+			<ref local="authenticationDao" />
+		</property>
+		<property name="tokenValiditySeconds">
+			<value>2592000</value>
+		</property>
+		<property name="key">
+			<value>tuduRocks</value>
+		</property>
+	</bean>
+
+	<bean id="rememberMeAuthenticationProvider"
+		class="net.sf.acegisecurity.providers.rememberme.RememberMeAuthenticationProvider">
+		<property name="key">
+			<value>tuduRocks</value>
+		</property>
+	</bean>
+
+	<bean id="roleVoter" class="net.sf.acegisecurity.vote.RoleVoter">
+		<property name="rolePrefix">
+			<value />
+		</property>
+	</bean>
+
+	<bean id="accessDecisionManager"
+		class="net.sf.acegisecurity.vote.AffirmativeBased">
+		<property name="allowIfAllAbstainDecisions">
+			<value>false</value>
+		</property>
+		<property name="decisionVoters">
+			<list>
+				<ref local="roleVoter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- ===================== HTTP REQUEST SECURITY ==================== -->
+	<bean id="httpSessionContextIntegrationFilter"
+		class="net.sf.acegisecurity.context.HttpSessionContextIntegrationFilter">
+		<property name="context">
+			<value>
+				net.sf.acegisecurity.context.security.SecureContextImpl
+			</value>
+		</property>
+	</bean>
+
+	<bean id="authenticationProcessingFilter"
+		class="net.sf.acegisecurity.ui.webapp.AuthenticationProcessingFilter">
+		<property name="authenticationManager">
+			<ref bean="authenticationManager" />
+		</property>
+		<property name="rememberMeServices">
+			<ref bean="rememberMeServices" />
+		</property>
+		<property name="authenticationFailureUrl">
+			<value>/welcome.action?login_error=true</value>
+		</property>
+		<property name="defaultTargetUrl">
+			<value>/secure/showTodos.action</value>
+		</property>
+		<property name="filterProcessesUrl">
+			<value>/j_acegi_security_check</value>
+		</property>
+	</bean>
+
+	<bean id="securityEnforcementFilter"
+		class="net.sf.acegisecurity.intercept.web.SecurityEnforcementFilter">
+		<property name="filterSecurityInterceptor">
+			<ref local="filterInvocationInterceptor" />
+		</property>
+		<property name="authenticationEntryPoint">
+			<ref local="authenticationProcessingFilterEntryPoint" />
+		</property>
+	</bean>
+
+	<bean id="contextHolderAwareRequestFilter"
+		class="net.sf.acegisecurity.wrapper.ContextHolderAwareRequestFilter" />
+
+	<bean id="authenticationProcessingFilterEntryPoint"
+		class="net.sf.acegisecurity.ui.webapp.AuthenticationProcessingFilterEntryPoint">
+		<property name="loginFormUrl">
+			<value>/welcome.action</value>
+		</property>
+		<property name="forceHttps">
+			<value>false</value>
+		</property>
+	</bean>
+</beans>

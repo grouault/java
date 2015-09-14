@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="tudu.domain.model.TodoList" table="todo_list">
+		<cache usage="read-write" />
+
+		<id name="listId" column="id">
+			<generator class="uuid.hex">
+			</generator>
+		</id>
+
+		<property name="name" column="name" />
+
+		<property name="rssAllowed" column="rss_allowed" />
+
+		<set 	name="todos" 
+				lazy="false" 
+				inverse="true"
+				cascade="all-delete-orphan" 
+				order-by="description asc" 
+				outer-join="true">
+				
+			<cache usage="read-write" />
+
+			<key column="todo_list_id"></key>
+
+			<one-to-many class="tudu.domain.model.Todo" />
+
+		</set>
+		
+		<set name="users" table="user_todo_list">
+		    <cache usage="read-write" />
+			<key column="listId" />
+			<many-to-many class="tudu.domain.model.User" column="login"/>
+		</set>
+
+	</class>
+
+</hibernate-mapping>

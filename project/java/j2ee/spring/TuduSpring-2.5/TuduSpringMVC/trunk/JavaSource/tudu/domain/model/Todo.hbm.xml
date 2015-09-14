@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="tudu.domain.model.Todo" table="todo">
+		<cache usage="read-write" />
+
+		<id name="todoId" column="id">
+			<generator class="uuid.hex">
+			</generator>
+		</id>
+
+		<property name="creationDate" column="creation_date" />
+
+		<property name="description" column="description" />
+
+		<property name="completionDate" column="completion_date" />
+
+		<property name="priority" column="priority" />
+
+		<property name="dueDate" column="due_date" />
+
+		<many-to-one name="todoList" class="tudu.domain.model.TodoList"
+			cascade="none" outer-join="auto" update="true" insert="true"
+			column="todo_list_id" />
+
+		<property name="completed" column="completed" />
+
+	</class>
+
+</hibernate-mapping>

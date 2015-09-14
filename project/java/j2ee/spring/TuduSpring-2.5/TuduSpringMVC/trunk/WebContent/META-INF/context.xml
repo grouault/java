@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+	<Resource auth="Container" description="Tudu database"
+		driverClassName="org.hsqldb.jdbcDriver" maxActive="100" maxIdle="30"
+		maxWait="10000" name="jdbc/tudu" password=""
+		type="javax.sql.DataSource"
+		url="jdbc:hsqldb:C:\\Eclipse\\workspace\\tudu\\db\\tudu" username="sa" />
+</Context>

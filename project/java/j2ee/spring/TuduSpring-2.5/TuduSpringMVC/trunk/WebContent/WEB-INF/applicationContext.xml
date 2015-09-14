@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--
+	      Message sources
+	-->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages"/>
+	</bean>
+
+	<bean id="userManagerTarget"
+		class="tudu.service.impl.UserManagerImpl">
+		<property name="userDAO">
+			<ref bean="userDAO" />
+		</property>
+		<property name="roleDAO">
+			<ref bean="roleDAO" />
+		</property>
+		<property name="todoListDAO">
+			<ref bean="todoListDAO" />
+		</property>
+		<property name="todoDAO">
+			<ref bean="todoDAO" />
+		</property>
+		<property name="propertyDAO">
+			<ref bean="propertyDAO" />
+		</property>
+	</bean>
+
+	<bean id="userManager"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="userManagerTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="todoListsManagerTarget"
+		class="tudu.service.impl.TodoListsManagerImpl">
+		<property name="todoListDAO">
+			<ref bean="todoListDAO" />
+		</property>
+		<property name="todoDAO">
+			<ref bean="todoDAO" />
+		</property>
+		<property name="userManager">
+			<ref bean="userManager" />
+		</property>
+	</bean>
+
+	<bean id="todoListsManagerInterceptor" class="tudu.service.impl.TodoListsManagerInterceptor"/>
+	
+	<bean id="todoListsManager"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="todoListsManagerTarget" />
+		</property>
+		<property name="preInterceptors">
+			<list>
+				<ref local="todoListsManagerInterceptor"/>
+			</list>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="restore*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="todosManagerTarget"
+		class="tudu.service.impl.TodosManagerImpl">
+		<property name="todoDAO">
+			<ref bean="todoDAO" />
+		</property>
+		<property name="todoListsManager">
+			<ref bean="todoListsManager" />
+		</property>
+		<property name="userManager">
+			<ref bean="userManager" />
+		</property>
+	</bean>
+
+	<bean id="todosManager"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="todosManagerTarget" />
+		</property>
+		<property name="preInterceptors">
+			<list>
+				<ref bean="jmsInterceptor"/>
+			</list>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="completeTodo">PROPAGATION_REQUIRED</prop>
+				<prop key="reopenTodo">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="configurationManagerTarget"
+		class="tudu.service.impl.ConfigurationManagerImpl">
+		<property name="propertyDAO">
+			<ref bean="propertyDAO" />
+		</property>
+	</bean>
+
+	<bean id="configurationManager"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="configurationManagerTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
