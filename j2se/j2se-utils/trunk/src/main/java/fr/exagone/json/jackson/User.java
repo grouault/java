@@ -16,6 +16,7 @@ public class User {
 	private String name;
 	private List<String> messages;
 	private Adress adresse;
+	private String url;
 	
 	/**
 	 * convertit un objet user en flux json.
@@ -59,9 +60,16 @@ public class User {
 		return "User [age=" + age + ", name=" + name + ", " +
 				"messages=" + messages + "]";
 	}
-	 
-	//getter and setter methods
 	
+	// Metier specifique.
+	public String getUrl() {
+		return new String("http:\\test.fr\\" + getName());
+	}
+	
+	//getter and setter methods
+	public void setUrl(String url) {
+		this.url = url;
+	}	
 	public int getAge() {
 		return age;
 	}
