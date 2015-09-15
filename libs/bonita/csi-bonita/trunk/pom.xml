@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>csi-maven</artifactId>
+		<groupId>fr.citesciences</groupId>
+		<version>1.1.2</version>
+	</parent>
+
+	<artifactId>csi-bonita</artifactId>
+	<version>trunk-SNAPSHOT</version>
+	<name>${artifactId}</name>
+	<description>projet utilitaire CSI pour bonita</description>
+
+	<properties>
+		<slf4jVersion>1.6.1</slf4jVersion>
+		<log4j.version>1.2.14</log4j.version>
+		<slf4j-log4j12.version>1.5.2</slf4j-log4j12.version>
+		<commons-logging.version>1.2</commons-logging.version>
+		<bonita.version>6.4.2</bonita.version>
+		<servlet.version>2.5</servlet.version>
+		<http.version>3.1</http.version>
+		<bonitaBpmTool.version>2.5</bonitaBpmTool.version>
+		<cas-client.version>3.1.11</cas-client.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons-logging.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.bonitasoft.engine</groupId>
+			<artifactId>bonita-client</artifactId>
+			<version>${bonita.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4jVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${http.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jasig.cas.client</groupId>
+			<artifactId>cas-client-core</artifactId>
+			<version>${cas-client.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.bonitasoft.tools</groupId>
+			<artifactId>bonita-bpm-tools</artifactId>
+			<version>${bonitaBpmTool.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<scm>
+		<connection>scm:svn:http://webdev.citepro.cite-sciences.fr:8888/svn/sifp/csi-core/bonita/csi-bonita/trunk/</connection>
+		<developerConnection>scm:svn:http://webdev.citepro.cite-sciences.fr:8888/svn/sifp/csi-core/bonita/csi-bonita/trunk/</developerConnection>
+	</scm>
+
+</project>
