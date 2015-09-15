@@ -14,6 +14,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Iterator;
 
 import javax.imageio.ImageIO;
@@ -29,19 +32,27 @@ public class TestRead {
 	public static final String URL_IMAGE_ERROR = "http://static.voila.fr/Images/blocs/Magic/140544.jpg";
 	private static String FILE_TEST = "C:/Temp/devs/bandoweb_forum.jpg";
 	private static String FILE_DEST = "C:/Temp/devs/file_dest.jpg";
+	
+	private static final String URL_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Pinocchio_1940.jpg/290px-Pinocchio_1940.jpg";
+	
 	//	private static String FILE_TEST = "C:/Temp/devs/denise.jpg";
 	
 	
 	public static void main(String[] args) {
 		Image image;
 		try {
-			image = readCMYKImage(new File(FILE_TEST));
-//			image = convertImage(new File(FILE_TEST));
-			if (image != null) {
-				System.out.println("image ok");
-			} else {
-				System.out.println("image ko");
-			}
+			
+			BufferedImage buffer = read(URL_IMAGE);
+			System.out.println("Buffer = " + buffer);
+			
+////			image = readCMYKImage(new File(FILE_TEST));
+////			image = convertImage(new File(FILE_TEST));
+//			if (image != null) {
+//				System.out.println("image ok");
+//			} else {
+//				System.out.println("image ko");
+//			}
+			
 		} catch (Exception e) {
 			System.out.println("ex : " + e.getMessage());
 		}
@@ -146,6 +157,22 @@ public class TestRead {
 		return image;
 		
 	}
+	
+	public static BufferedImage read(final String urlStr){
+		BufferedImage buffer = null;
+		try {
+			URI uri = new URI(urlStr);
+			URL url = uri.toURL();
+			buffer = ImageIO.read( url );
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return buffer;
+	}
+
 		
 	public static Image getImageByInputStream(File file) {
 		
@@ -154,6 +181,7 @@ public class TestRead {
 		try {
 			iis = new FileImageInputStream(file);
 			img = ImageIO.read(iis);
+		
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
