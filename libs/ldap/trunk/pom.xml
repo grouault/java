@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion> 
+  <parent>
+ 	  <groupId>fr.citesciences</groupId>
+	  <artifactId>csi-maven</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  
+  <artifactId>ldap</artifactId>
+  <packaging>jar</packaging>
+  <name>ldap</name>
+  <version>trunk-SNAPSHOT</version>
+  
+   <scm>
+    <connection>scm:svn:http://webdev.citepro.cite-sciences.fr:8888/svn/sifp/csi-core/ldap/trunk</connection>
+    <developerConnection>scm:svn:http://webdev.citepro.cite-sciences.fr:8888/svn/sifp/csi-core/ldap/trunk</developerConnection>
+  </scm>
+	
+	
+		<properties>
+			<commons-logging.version>1.0</commons-logging.version>
+			<junit.version>3.8.1</junit.version>
+  	</properties>
+	
+  
+   <dependencies>
+	     <dependency>
+	     		<groupId>commons-logging</groupId>
+    			<artifactId>commons-logging</artifactId>
+    			<version>${commons-logging.version}</version>
+				</dependency>
+				<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>${junit.version}</version>
+    <scope>test</scope>
+</dependency>
+	 </dependencies>
+ 
+  <build>
+    <finalName>ldap</finalName>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <resources>
+      <resource>
+        <filtering>false</filtering>
+	    <directory>src/main/resources</directory>
+		<excludes>
+		  <exclude>ldap.properties</exclude>
+		</excludes>	
+      </resource>
+    </resources>
+    
+    <plugins>
+     <plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>false</skip>
+					<forkMode>always</forkMode>
+					<includes>
+						<include>**/Test*.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/*$*</exclude>
+					</excludes>
+				</configuration>
+	  </plugin>
+    </plugins>
+  </build>
+  
+
+</project>

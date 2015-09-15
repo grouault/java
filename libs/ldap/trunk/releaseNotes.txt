@@ -1,0 +1,47 @@
+LDAP 
+----------------------------------------------------------------
+----------------------------------------------------------------
+-- version trunk-SNAPSHOT - 05/02/2013
+----------------------------------------------------------------
+----------------------------------------------------------------
+- Prise en compte du nouveau compte de test pour la connexion.
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+-- version 1.1.2 - 02/02/2012
+----------------------------------------------------------------
+----------------------------------------------------------------
+* Distinction de la conf.
+- secure(login/mdp) en mode ssl.
+- secure(login/mdp) en mode normal.
+Cette distinction se fait via le nouveau paramètre:
+ldap.mode.secure.csi=false
+ldap.mode.secure.palais=false
+suppression du test exploitation connexion securisé
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+-- version 1.1.1 - 31/01/2012
+----------------------------------------------------------------
+----------------------------------------------------------------
+* Prise en compte du login Palais spécifique.
+* Le login/dn palais se base sur l'attribut LDAP sAMAccountName. 
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+-- version 1.1.0 - 26/01/2012
+-- prise en compte des nuisances + gestion des alertes
+----------------------------------------------------------------
+----------------------------------------------------------------
+* Evolution suite intégration du site Palais. 
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+-- Version 1.0.1 du 04/07/2009 par Guillaume Georges - XWAN (guillaume.georges@gmail.com)
+----------------------------------------------------------------
+----------------------------------------------------------------
+
+    * Renommage des packages Java : fr.citesciences.ldap
+    * Changement du GroupId maven : fr.citesciences
+
+NB : Cette version correspond à la version 1.2 dans le versionning pré-migration Maven  
