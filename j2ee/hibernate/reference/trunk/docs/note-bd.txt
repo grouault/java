@@ -1,0 +1,9 @@
+# Creation du user SchemaBase/SchemaBase.
+##
+create user 'SchemaBase'@'localhost' identified by 'SchemaBase';
+grant all on BaseSchema.* to 'SchemaBase'@'localhost';
+
+# Mapping
+##
+Component.
+http://docs.jboss.org/hibernate/orm/3.3/reference/en/html/components.html
