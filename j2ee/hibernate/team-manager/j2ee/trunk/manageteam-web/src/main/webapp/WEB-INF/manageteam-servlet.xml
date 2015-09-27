@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+    
+<beans
+  default-autowire="no"
+  default-lazy-init="false"
+  default-dependency-check="none"
+>
+
+	<!--
+		========================= 
+		Définition des services
+		=========================
+	-->
+  <bean
+      id="playerManager"
+      class="fr.exagone.teamanage.services.impl.PlayerManagerImpl"
+  >	
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+
+  <bean
+      id="userManager"
+      class="fr.exagone.teamanage.services.impl.UserManagerImpl"
+  >	
+  	<property name="sessionFactory">
+  		<ref bean="sessionFactory" />
+  	</property>
+  </bean>
+	<!--
+		========================= 
+		Définition des controllers
+		=========================
+	-->
+  <bean
+  	  id="mainController"
+      class="fr.exagone.teamanage.controllers.MainController"
+  >
+  	<property name="playerManager">
+  		<ref bean="playerManager"/>
+  	</property>
+  </bean>
+  
+  <bean id="adminController" class="fr.exagone.teamanage.controllers.AdminController" />
+
+	<bean id="urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="urlMap">
+			<map>
+				<!-- Divers -->
+				<entry key="/home/accueil.do"><ref local="mainController" /></entry>
+				<entry key="/denied.do"><ref local="mainController" /></entry>
+				<!-- Divers -->
+				<entry key="/admin/testAdmin.do">
+					<ref local="adminController" />
+				</entry>	
+			</map>
+		</property>
+		
+		<!-- interceptor -->
+		
+	</bean>
+
+	<!--
+		========================= 
+		Définition des vues
+		=========================
+	-->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename">
+			<value>views</value>
+		</property>
+	</bean>
+
+</beans>

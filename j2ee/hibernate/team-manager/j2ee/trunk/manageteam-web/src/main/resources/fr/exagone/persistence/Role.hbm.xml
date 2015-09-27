@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="fr.exagone.teamanage.bean.Role" table="ROLES">
+        <id name="id" type="integer" column="ROLE_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string" column="ROLE_NAME" />
+        <property name="code" type="string" column="ROLE_CODE" />
+    </class>
+
+</hibernate-mapping>
