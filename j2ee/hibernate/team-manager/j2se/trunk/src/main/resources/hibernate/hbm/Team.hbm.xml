@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="team.manager.model.Team" table="TEAM" proxy="team.manager.model.Team">
+        <id name="id" column="TEAM_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string" column="TEAM_NAME" />       
+        <property name="nbWon" type="integer" column="NB_WON" />
+        <property name="nbLost" type="integer" column="NB_LOST" />
+        <property name="nbPlayed" type="integer" column="NB_PLAYED" />
+        
+        <many-to-one name="coach" class="team.manager.model.Coach" column="COACH_ID" unique="true" />
+        
+        <set name="players" table="PLAYER">
+          <key column="TEAM_ID" />
+          <one-to-many class="team.manager.model.Player"/>
+        </set>
+        
+        <map name="homeGames" table="GAME">
+			<key column="HOME_TEAM_ID" />
+			<index column="GAME_DATE" type="date" />
+			<one-to-many class="team.manager.model.Game" />
+		</map>        
+		
+		<map name="awayGames" table="GAME">
+			<key column="AWAY_TEAM_ID" />
+			<index column="GAME_DATE" type="date" />
+			<one-to-many class="team.manager.model.Game" />
+		</map> 
+		
+       
+    </class>
+</hibernate-mapping>
