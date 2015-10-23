@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="inkwell-project-portlet" basedir="." default="deploy">
+	<import file="D:\devs\liferay\liferay-plugins-sdk-6.2\portlets/build-common-portlet.xml" />
+</project>
