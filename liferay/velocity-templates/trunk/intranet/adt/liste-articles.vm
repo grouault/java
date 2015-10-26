@@ -1,0 +1,307 @@
+#set ($friendlyUrl = $request.getAttribute("FRIENDLY_URL"))
+#set ($entryId = $friendlyUrl.substring($mathTool.add($friendlyUrl.lastIndexOf("/"), 1)))
+<div class="debug">
+	friendlyUrl = $friendlyUrl<br/>
+	entries = $entries<br/>
+	articleId = $entryId<br/>
+	test = $mathTool.toInteger($entryId)
+</div>
+#if ($mathTool.toInteger($entryId))
+	## one article
+	#set($layoutLocalService = $serviceLocator.findService("com.liferay.portal.service.LayoutLocalService"))
+	#set ($assetEntryLocalService = $serviceLocator.findService("com.liferay.portlet.asset.service.AssetEntryLocalService"))
+	#set ($assetEntry = $assetEntryLocalService.getEntry("com.liferay.portlet.journal.model.JournalArticle", $getterUtil.getLong($entryId)))
+	#set ($groupId = $themeDisplay.getLayout().getGroupId())
+	#set ($journalArticleLocalService = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleLocalService"))
+	#set ($journalArticle = $journalArticleLocalService.fetchLatestIndexableArticle($getterUtil.getLong($assetEntry.getClassPK()) ))
+	#set( $document = $saxReaderUtil.read($journalArticle.getContent()) )
+	#set( $rootElement = $document.getRootElement() )
+	<div class="debug">
+		rootElement = $rootElement<br/>
+		layoutLocalService = $layoutLocalService<br/>
+		#set($layout = $layoutLocalService.getLayout(15613, false, 6)) <br/>
+		layout = $layout<br/> 
+		url = $layout.getName()<br/>
+		portalUtil = $portalUtil<br/>
+		themeDisplay = $themeDisplay<br/>
+		test = $portalUtil.getLayoutFullURL($layout, $themeDisplay)
+	</div>
+	#set($paragraphes = []) ## paragraphes de l'article.
+	#foreach( $dynamicElement in $rootElement.elements() )	
+		<div class="debug"> 
+			name = $dynamicElement.attributeValue("name") <br/>
+		</div>
+		#if( "ImageArticle" == $dynamicElement.attributeValue("name") )
+			#set( $img = $dynamicElement.element("dynamic-content").getText())
+			#set( $imgElmts = $dynamicElement.elements() )
+			#foreach($imgElmt in $imgElmts)
+				#if("Credits" == $imgElmt.attributeValue("name"))
+					#set( $imgCredit = $imgElmt.element("dynamic-content").getText() )
+				#end
+				#if("Legende" == $imgElmt.attributeValue("name"))
+					#set( $imgLegende = $imgElmt.element("dynamic-content").getText() )
+				#end
+				#if("SeparateurImageArticle" == $imgElmt.attributeValue("name"))
+					#set( $imgSep = $imgElmt.element("dynamic-content").getText() )
+				#end
+			#end
+		#end
+		#if( "Chapeau" == $dynamicElement.attributeValue("name") )
+			#set( $chapeau = $dynamicElement.element("dynamic-content").getText() )
+			#set( $chapeauSep = $dynamicElement.element("dynamic-element").element("dynamic-content").getText() )
+		#end
+		#if( "Thematique" == $dynamicElement.attributeValue("name") )
+			#set( $thematique = $dynamicElement.element("dynamic-content").getText())
+		#end
+		## TRAITEMENT des paragraphes
+		#if( "InterTitre" == $dynamicElement.attributeValue("name") )
+			$paragraphes.add( $dynamicElement )
+		#end
+	#end
+	
+    ## ARTICLE
+    ## TEMPLATE DETAIL
+    ##
+    <section class="article">
+    	## THEMATIQUES
+    	<div class="thematiques">$thematique</div>
+    	## TITRE
+    	<h1 class="titre">$assetEntry.getTitle($locale)</h1>			
+    	#*
+    	
+    	INTRO *#
+    	<div class="intro">
+    		#if ($img != "")
+    		<div class="image left">
+    			<img alt="Image de l'article" src="$img" />
+    			<div class="infos">
+    				<span class="credit">$imgCredit</span>
+    				<span class="legende">$imgLegende</span>
+    			</div>
+    		</div>
+    		 #end 
+    		<p class="chapeau">$chapeau</p>
+    	</div>
+    	<div class="separateur-chapeau sep-$chapeauSep"></div>	
+    	#*
+    	
+    	CONTENT *#
+		## Traitement de chaque paragraphe.
+		<div class="content">
+		#if($paragraphes.size() > 0)
+		#foreach($paragraphe in $paragraphes)
+			
+			## contexte paragraphe
+    		#set($imgIllustrations = [])
+    		#set($linksPage = [])
+    		#set($linkUrls = [])
+    		#set($linkDocs = [])
+    		<div class="paragraphe">	
+			##
+			## recuperation datas contexte paragraphe
+			#set( $titlePara = $paragraphe.element("dynamic-content").getText() )	
+			#foreach($elmt in $paragraphe.elements())
+				## image
+    			#if("ImageCorpsTexte" == $elmt.attributeValue("name"))
+    				#set( $imgCrpsTxt = $elmt.element("dynamic-content").getText() ) 
+    				#foreach($imgElmts in $elmt.elements())
+    					#if("PositionImageCorpsTexte" == $imgElmts.attributeValue("name"))
+    						#set( $imgCrpsTxtPos = $imgElmts.element("dynamic-content").getText() )
+    					#end
+    					#if("CreditsCorpsTexte" == $imgElmts.attributeValue("name"))
+    						#set( $imgCrpsTxtCredit = $imgElmts.element("dynamic-content").getText() )
+    					#end
+					#end
+    			#end		
+    			## corps de texte
+    			#if("CorpsTexte" == $elmt.attributeValue("name"))
+    				#set( $corpsTexte = $elmt.element("dynamic-content").getText() )					
+
+				#end 			
+    			#if("SeparateurCorpsTexte" == $elmt.attributeValue("name"))
+    				#set( $corpsTexteSep = $elmt.element("dynamic-content").getText() )
+				#end
+				## image d'illustration - mulitvalue
+    			#if("ImageIllustration" == $elmt.attributeValue("name"))
+					$imgIllustrations.add( $elmt )		
+				#end				
+    			#if("SeparateurImageIllustration" == $elmt.attributeValue("name"))
+    				#set( $imgIllustrationsSep = $elmt.element("dynamic-content").getText() )
+				#end		
+    			## LINKTOPAGE - - multivalue
+                #if( "LinkToPage" == $elmt.attributeValue("name"))
+    				#set( $linkToPages = $elmt )
+    			#end				
+       			#if("SeparateurSavoirPlus" == $elmt.attributeValue("name"))
+        			#set( $linkToPageSep = $elmt.element("dynamic-content").getText() )
+        		#end	
+    			## LIEN DOCUMENT - multivalue
+                #if( "DAM" == $elmt.attributeValue("name"))
+    				$linkDocs.add( $elmt )
+    			#end
+    			#if("SeparateurDocument" == $elmt.attributeValue("name"))
+    				#set( $linkDocsSep = $elmt.element("dynamic-content").getText() )
+    			#end
+    			## LIEN URL EXTERNE - multivalue
+                #if( "LinkUrl" == $elmt.attributeValue("name"))
+					$linkUrls.add( $elmt )
+    			#end
+    			#if("SeparateurLinkUrl" == $elmt.attributeValue("name"))
+    				#set( $linkUrlsSep = $elmt.element("dynamic-content").getText() )
+				#end				
+				
+			#end ## for each elmtParagraphe
+			
+			<div class="debug">
+				Paragraphe : <br/>
+				titlePara = $titlePara<br/>
+				imgCrpsTxt = $imgCrpsTxt<br/>
+				imgCrpsTxtPos = $imgCrpsTxtPos<br/>
+				imgCrpsTxtCredit = $imgCrpsTxtCredit<br/>
+				corpsTexte = $corpsTexte<br/>
+				corpsTexteSep = $corpsTexteSep<br/>
+				imgIllustration = $imgIllustrations<br/>
+				imgIllustrationSize = $imgIllustrations.size()<br/>
+				imgIllustrationsSep = $imgIllustrationsSep<br/>
+				linkToPages = $linkToPages<br/>
+				linkToPages.size = $linkToPages.size()<br/>
+				linkToPageSep = $linkToPageSep<br/>
+				linkDocs = $linkDocs<br/>
+				linkDocs.size = $linkDocs.size()<br/>
+				linkDocsSep = $linkDocsSep<br/>			
+				linkUrls = $linkUrls<br/>
+				linkUrls.size = $linkUrls.size()<br/>
+				linkUrlsSep = $linkUrlsSep<br/>	
+			</div>
+			
+			#* 
+			
+			HTML PARAGRAPHE *#
+			## titre
+            #if ($titlePara != "")
+				<h2 class="inter-titre">$titlePara</h2>
+			#end			
+			## image
+			#if($imgCrpsTxt != "")
+            <div class="image $imgCrpsTxtPos">
+    			<img alt="Image du corps de texte" src="$imgCrpsTxt" />
+    			<div class="infos">
+    				<span class="credit">$imgCrpsTxtCredit</span>
+    			</div>
+    		</div>
+			#end
+			## corps de texte
+            #if ($corpsTexte != "")
+				<p class="corps-texte">$corpsTexte</p>
+				<div class="separateur-paragraphe sep-$corpsTexteSep"></div>
+            #end		
+			## image illustrations
+			#if($imgIllustrations.size() > 0)
+			<div class="illustrations">
+				#foreach ($imgIllustration in $imgIllustrations)
+					#set($imgSrc = $imgIllustration.element("dynamic-content").getData())
+					#set($creditIllustration = $imgIllustration.element("dynamic-element").element("dynamic-content").getData())
+					#if ($imgSrc != "")
+						<img class="illustration" alt="" src="$imgSrc" />
+						<div class="infos">
+							<span class="credit">$creditIllustration</span>
+						</div>
+					#end
+				#end	
+				<div class="separateur-illustration sep-$imgIllustrationsSep"></div>
+			</div>				
+			#end
+			## liens internes
+			#if($linkToPages.size() > 0)
+				<ul class="liens-internes links">
+                #foreach ($linkToPage in $linkToPages)
+                    #if ($linkToPage.getData() != "")
+    				<li><a class="interne" href="$linkToPage.getFriendlyUrl()">$linkToPage.LabelLinkIntranet.getData()</a></li>
+                	#end
+    			#end
+    			</ul>
+				<div class="separateur-liens-internes sep-$linkToPageSep"></div>
+			#end
+			## document
+			#if($linkDocs.size() > 0)
+    			<ul class="liens-doc links">
+                #foreach ($linkDoc in $linkDocs)
+					#set($linkDocSrc = $linkDoc.element("dynamic-content").getData())
+					#set($linkDocsLabel = $linkDoc.element("dynamic-element").element("dynamic-content").getData())					
+                    #if ($linkDocSrc != "" && $linksDocsLabel != "")
+    				<li><a class="document" href="$linkDocSrc">$linkDocsLabel</a></li>
+                    #end
+    			#end
+    			</ul>
+    			<div class="separateur-liens-docs sep-$linkDocsSep"></div>			
+			#end
+			## liens externes
+			#if($linkUrls.size() > 0)
+				<ul class="liens-externes links">
+                #foreach ($linkUrl in $linkUrls)
+					#set($linkUrlSrc = $linkUrl.element("dynamic-content").getData())
+					#set($linkUrlLabel = $linkUrl.element("dynamic-element").element("dynamic-content").getData())
+                    #if ($linkUrlLabel != "")
+    				<li><a class="externe" href="$linkUrlSrc" target="_blank">$linkUrlLabel</a></li>
+                    #end
+    			#end
+    			</ul>
+    			<div class="separateur-liens-externes sep-$linkUrlsSep"></div>
+			#end	
+		</div> ##paragraphe	
+		#end ## end for each paragraphe
+		#end
+		</div> ## content
+	<section>
+#else
+	## liste article
+    <section class="articles">
+    #set($classNameLocalService = $serviceLocator.findService("com.liferay.portal.service.ClassNameLocalService"))
+    #set($jaClassNameId = $classNameLocalService.fetchClassNameId("com.liferay.portlet.journal.model.JournalArticle"))			
+    #set($ddmStructureLocalService  = $serviceLocator.findService("com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalService"))
+
+    #foreach ($entry in $entries)
+    	#set($renderer = $entry.getAssetRenderer() )
+    	#set($className = $renderer.getClassName() )
+    	
+    	## attribut article.
+    	#set( $img = "")
+    	#set( $chapeau = "")
+    	#set( $articleUrl = "")
+    		
+    	#if( $className == "com.liferay.portlet.journal.model.JournalArticle" )
+    		#set( $journalArticle = $renderer.getArticle() )
+    		#set( $document = $saxReaderUtil.read($journalArticle.getContent()) )
+    		#set( $rootElement = $document.getRootElement() )		
+    	
+    		#set($structure = $ddmStructureLocalService.fetchStructure($getterUtil.getLong($groupId), $getterUtil.getLong($jaClassNameId), $journalArticle.structureId))
+    		#if ($structure.name.contains("Article"))
+    			#foreach( $dynamicElement in $rootElement.elements() )
+    				#if( "ImageArticle" == $dynamicElement.attributeValue("name") )
+    					#set( $img = $dynamicElement.element("dynamic-content").getText())
+    				#end
+    				#if( "Chapeau" == $dynamicElement.attributeValue("name") )
+    					#set( $chapeau = $dynamicElement.element("dynamic-content").getText())
+    				#end
+    				#if( "Thematique" == $dynamicElement.attributeValue("name") )
+    					#set( $thematique = $dynamicElement.element("dynamic-content").getText())
+    				#end
+    			#end		
+    			## HTML
+                <article class="article article-item">
+                    ## image article.
+                    <a href="$articleUrl"><img src="$img" alt="picto article"></a>
+                    ## Titre
+                    <h3><a href="$articleUrl">$entry.getTitle($locale)</a></h3>
+                    ## infos.
+                    <div class="infos">
+                    	<span class="thematique sep">$thematique</span>
+                    </div>
+                    <p class="chapeau">$chapeau</p>
+            		<p><a href="/group/intranet/liste-des-articles/-/asset_publisher/id/$entry.getClassPK()" class="link-red">Lire la suite ...</a></p>
+                </article>	
+    		#end			
+    	#end
+    #end	
+</section>
+#end

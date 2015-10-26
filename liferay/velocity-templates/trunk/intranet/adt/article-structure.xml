@@ -1,0 +1,155 @@
+"<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Thematique" type="list" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[evenement]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageArticle" type="image" index-type="keyword" index="0">
+		<dynamic-element name="Credits" index="0" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[crédits de l'image]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Legende" index="0" type="text_box" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[legende de l'image]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurImageArticle" index="0" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US" id="2606770">/image/journal/article?img_id=2606770&amp;t=1445444333236</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Chapeau" type="text_area" index-type="keyword" index="0">
+		<dynamic-element name="SeparateurChapeau" index="0" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[<p>On pensait en savoir beaucoup sur les chiens et les chats. Pas si sûr… Cette expo à la Cité passe à la loupe les connaissances scientifiques, sociologiques et culturelles actuelles, notamment des données d’éthologie en encore peu diffusées.</p>
+
+<p>&nbsp;</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="InterTitre" type="text" index-type="keyword" index="0">
+		<dynamic-element name="ImageCorpsTexte" index="0" type="image" index-type="keyword">
+			<dynamic-element name="PositionImageCorpsTexte" index="0" type="list" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[left]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-element name="CreditsCorpsTexte" index="0" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[crédits image]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US" id="2606771">/image/journal/article?img_id=2606771&amp;t=1445444333245</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CorpsTexte" index="0" type="text_area" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[<p>L’idée de cette expo m’est venue tout bêtement quand j’ai pris conscience de toutes les idées reçues que nous pouvions avoir sur les chiens et les chats. Pas mal de recherches ont été menées sur leurs comportements, mais peu sont connues.</p>
+
+<p>Je me suis dit qu’il serait intéressant d’aborder ce sujet grand public sous un angle éthologique. Cette proposition a plu et s’intégrait bien à la programmation. Et nous avons dû monter ce projet en un an. L’expo s’organise autour d’un parcours ludique, sensoriel et interactif autour de trois thématiques Dans leur peau, Dans leur tête, et Dans nos sociétés. Nous avons adoptés des partis pris muséographiques originaux et attrayants. Le visiteur pourra comparer ses capacités physiques à celle de l’animal grâce à des exercices amusants ; découvrir leur représentation du monde à travers des mises en situation vu par l’humain puis par le chien et le chat ; décoder leurs communications corporelles, vocales ou tactiles en jouant par exemple avec un chien virtuel ou encore comprendre leur place dans l’histoire et dans la société. Pas de vrais chiens ou chats dans l’expo, mais en sortant de la visite nous regarderons nos compagnons avec un autre œil !</p>]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurCorpsTexte" index="0" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ImageIllustration" index="0" type="image" index-type="keyword">
+			<dynamic-element name="CreditsIllustration" index="0" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurImageIllustration" index="0" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="LinkToPage" index="0" type="link_to_layout" index-type="keyword">
+			<dynamic-element name="LabelLinkIntranet" index="0" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurSavoirPlus" index="0" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="DAM" index="0" type="document_library" index-type="keyword">
+			<dynamic-element name="LabelLinkDocument" index="0" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurDocument" index="0" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="LinkUrl" index="0" type="text" index-type="keyword">
+			<dynamic-element name="LabelLinkUrl" index="0" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurLinkUrl" index="0" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Sophie Lecuyer, commissaire de l'exposition.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="InterTitre" type="text" index-type="keyword" index="1">
+		<dynamic-element name="ImageCorpsTexte" index="1" type="image" index-type="keyword">
+			<dynamic-element name="PositionImageCorpsTexte" index="1" type="list" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[right]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-element name="CreditsCorpsTexte" index="1" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[credits]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US" id="2606774">/image/journal/article?img_id=2606774&amp;t=1445444333255</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CorpsTexte" index="1" type="text_area" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[<span style="font-size: small;"><span style="font-family: Arial;">'ai conçu la scénographie et assuré&nbsp;la direction artistique. Nous avons élaboré un scénario qui englobe les différents contenus de l’expo, tout en imaginant un esthétisme caractéristique pour chaque partie avec des coloris distincts.</span></span>]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurCorpsTexte" index="1" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ImageIllustration" index="1" type="image" index-type="keyword">
+			<dynamic-element name="CreditsIllustration" index="1" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[avatar]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US" id="2606775">/image/journal/article?img_id=2606775&amp;t=1445444333263</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ImageIllustration" index="2" type="image" index-type="keyword">
+			<dynamic-element name="CreditsIllustration" index="2" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[tttt]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US" id="2606776">/image/journal/article?img_id=2606776&amp;t=1445444333270</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurImageIllustration" index="1" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[pointille]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="LinkToPage" index="1" type="link_to_layout" index-type="keyword">
+			<dynamic-element name="LabelLinkIntranet" index="1" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[lien vers une page]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[11@private-group@2606501]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="LinkToPage" index="2" type="link_to_layout" index-type="keyword">
+			<dynamic-element name="LabelLinkIntranet" index="2" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[lien vers une 2eme page]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[3@private-group@2606501]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurSavoirPlus" index="1" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[trait]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="DAM" index="1" type="document_library" index-type="keyword">
+			<dynamic-element name="LabelLinkDocument" index="1" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[lien vers un document]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[/documents/2606501/0/dfsfds/449fc5ee-4e2f-4aab-8358-ed2f860da9d7]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="DAM" index="2" type="document_library" index-type="keyword">
+			<dynamic-element name="LabelLinkDocument" index="2" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurDocument" index="1" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[pointille]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="LinkUrl" index="1" type="text" index-type="keyword">
+			<dynamic-element name="LabelLinkUrl" index="1" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[pour en savoir plus]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[http:://www.google.Fr]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="SeparateurLinkUrl" index="1" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[trait]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Laurence Juillard]]></dynamic-content>
+	</dynamic-element>
+</root>"
