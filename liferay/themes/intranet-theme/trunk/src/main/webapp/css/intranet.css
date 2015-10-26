@@ -1,0 +1,425 @@
+@CHARSET "UTF-8";
+/*
+ * CHANGELOG
+ * 2015-10-15  GR Creation
+ */
+
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+/*
+GENERAL
+-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+.credits,
+.legende{
+	font-size: smaller;
+	font-style: italic;
+}
+
+.image.left{
+	float: left;
+}
+
+.image.right{
+	float: right;
+}
+
+ul.links{
+	list-style: none;
+}
+
+.links a,
+a.link-red{
+	color: #E2001A;
+	padding-left: 10px;
+	background: transparent url("img/more_read_arrow.png") no-repeat scroll 0px center;
+	margin-bottom: 5px;	
+}
+
+.intranet.aui .links a:hover
+.links a:hover,
+a.link-red:hover{
+	color: #A90014;
+	text-decoration: none;
+}
+
+.sep-pointille{
+	border-top: 1px dashed #929DA0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+.sep-trait{
+	border-top: 1px solid #929DA0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+/* navigation
+----------------------------------------------------------------------------------------------------------------------------*/
+.intranet.aui .site-navigation{
+	margin: 0;
+}
+.intranet.aui #navigation .navbar-inner{
+	background: transparent none repeat scroll 0% 0%;
+}
+
+.intranet.aui #navigation .nav > li{
+	border-top: solid 1px gray;
+	border-left: solid 1px gray;
+	border-top-left-radius: 5px;
+	border-right: solid 1px gray;
+	border-top-right-radius: 5px;
+	margin-left: 2px;
+}
+
+.intranet.aui #navigation .nav > li > a{
+	color: #000;
+	font-weight: bold;	
+}
+
+.intranet.aui #navigation .nav > li a {
+	font-size: 13px;	
+}
+
+.intranet.aui #navigation .nav li.active > a{
+	color: #fff;
+}
+
+.intranet.aui #navigation .nav .dropdown-menu a{
+	color: #fff;
+}
+
+/* niveau-2 */
+.intranet.aui #navigation ul{
+	margin: 0;
+}
+
+.intranet.aui #navigation .nav-niv-2 li{
+	list-style: none;
+}
+
+.intranet.aui #navigation .nav-niv-2 li > a{
+	color: #FFF;
+	font-size: 0.9em;
+	font-weight: 300;
+	padding-left: 25px;
+}
+
+.intranet.aui #navigation .nav li.selected{
+	background-color: #118ADE;
+}
+
+.intranet.aui #navigation .nav-niv-2 li i{
+	font-size: 0.8em;
+}
+
+
+/* breadcrumbs
+----------------------------------------------------------------------------------------------------------------------------*/
+.intranet.aui ul.breadcrumb{
+	background-color: unset;
+	padding: 1px 15px 2px;
+}
+
+.intranet.aui .lfr-hudcrumbs{
+	left: -1000px !important; /* sort ce bloc de l'affichage qui est en position fixed */
+}
+
+.intranet.aui .breadcrumb .active{
+	color: #fff;
+}
+
+
+#content #breadcrumbs {
+    background: url("img/breadcrumb-bg.png") repeat-x scroll left top transparent;
+    color: rgb(255, 255, 255);
+    height: 30px;
+    line-height: 30px;
+}
+
+#breadcrumbs .custom {
+    width: 1018px;
+	height: 30px;
+}
+
+#breadcrumbs .accueil {
+    display: block;
+    float: left;
+    margin-left: 12px;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: arial;
+}
+
+#breadcrumbs ul {
+    margin: auto;
+}
+
+#breadcrumbs ul li.first {
+    font-weight: bold;
+}
+
+#breadcrumbs ul li {
+    display: inline;
+    float: left;	
+    margin-right: 2px;
+    padding-left: 13px;
+    font-size: 11px;
+    word-spacing: 0;
+    background: url("img/breadcrumb-arrow.gif") no-repeat scroll 0 center transparent;
+}
+
+#breadcrumbs ul li:first-child{
+	margin-right: 5px;
+}
+
+#breadcrumbs a {
+    color: rgb(255, 255, 255);
+}
+
+#breadcrumbs span.divider{
+	display: none;
+}
+
+/*
+Pagination - Content 
+- article
+- breve
+-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+.lfr-pagination-config{
+	display: none;
+}
+.lfr-pagination small.search-results{
+	display: none;
+}
+.intranet.aui .pager li > a,
+.intranet.aui .pager li > a:hover{
+	padding: 1px 5px;
+	font-family: Arial,Helvetica,sans-serif;
+	line-height: 16px;
+	background: #FFF none repeat scroll 0% 0%;
+	color: #555964;
+	border-radius: 5px;
+}
+
+/*
+ARTICLE 
+-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+.article{
+	margin: 10px;
+}
+
+.article .thematiques{
+	font-size: 0.8em;
+	font-weight:normal;
+	font-style: italic;
+}
+
+.article h1 {
+	font-size:1.46em ;
+	font-weight:normal;
+	line-height:130%;
+	color:#000;
+}
+
+.article .intro p.chapeau{
+	line-height: 1.333em;
+	font-size: 1.06em;
+}
+
+.article .intro .image{
+	padding: 4px;
+	/*
+	border: 1px solid #E3E3E3;
+	border-radius: 4px;
+	*/
+}
+
+.article .intro .image img{
+	max-width: 167px;
+}
+
+.article .intro .infos span{
+	display: block;
+}
+
+.article .content{
+	clear: both;
+}
+
+.article .paragraphe{
+	clear: both;
+}
+
+.article .paragraphe h2{
+	font-size: 1.333em;
+	font-weight: normal;
+	line-height: 130%;
+	color: #000;
+	margin-bottom: 12px;
+}
+
+.article .paragraphe .links {
+    margin-top: 5px;
+}
+
+.article .illustrations{
+	clear: both;
+}
+
+.article .illustrations .illustration{
+	float: left;
+	margin-left: 5px;
+}
+
+.article .illustrations img{
+	max-height: 125px;
+}
+
+.article .paragraphe .liens-pages,
+.article .paragraphe .liens-docs{
+	clear: both;
+}
+
+.article .paragraphe .links{
+}
+
+/*
+Breve
+- breve-item : rendu d'une breve dans la liste des breves.
+- breve-detail : rendu d'une breve
+-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+.breves{
+	float: left;
+}
+.breve-item,
+.breve-detail{
+	float: left;
+	width: 100%;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background: transparent url("img/filet.png") repeat-x scroll left bottom;
+}
+.breve-item img,
+.breve-detail img{
+	float: left;
+	margin-right: 15px;
+}
+.breve-item h3,
+.breve-detail h3{
+	line-height: 1em;
+}
+.breve-item h3 a,
+.breve-detail h3 a{
+	color: #000;	
+	text-decoration: none;
+}
+.breve-item h3 a:hover{
+	color: #143C6B;	
+	text-decoration: none;
+}
+.breve-item .infos span,
+.breve-detail .infos span{
+	margin-bottom: 10px;
+	color: #6F6074;
+	font-size: 0.9em;
+}
+span.thematique{
+	display: block;
+}
+.breve-item p,
+.breve-detail p{
+	color: #333;
+}
+.breve-item p a,
+.breve-detail p a{
+	font-size: 0.9em;
+}
+.breve-detail p.content{
+	margin-top: 5px;
+}
+.breve-detail .links{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/*
+FLASH-INFO
+-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+.flashinfo{
+    color: #E2001A;
+    font-size: 1.36em;
+    font-weight: bold;
+    height: 20px;
+    text-align: center;
+    width: 200px;
+    /* 
+    position: absolute;
+    left: 350px;
+	top: 64px;
+	*/
+}
+
+.flashinfo a{
+	color: #E2001A;
+}
+
+/*
+CAROUSEL
+-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+.carousel-content-item{
+	position: relative;
+}
+.carousel-content-infos{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	color: #fff;
+}
+/* menu diaporama */
+section.diaporama .carousel{
+	background: #808080;
+}
+section.diaporama menu{
+	top: 50%;
+	right: 0;
+	left: 0;
+	bottom: unset;
+	background: transparent; 
+	padding: 0;
+}
+section.diaporama li.ts_index,
+section.diaporama li.ts_pause{
+	display: none;
+}
+section.diaporama menu li.ts_previous a{
+	display: block;
+}
+section.diaporama menu li.ts_previous{
+	float: left;
+}
+section.diaporama menu li.ts_next{
+	float: right;
+}
+section.diaporama menu a{	
+	float: unset !important;
+}

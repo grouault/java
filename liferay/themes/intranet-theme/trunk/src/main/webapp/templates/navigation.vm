@@ -1,0 +1,88 @@
+<nav class="$nav_css_class navbar site-navigation" id="navigation" role="navigation">
+	<div class="navbar-inner">
+		<div class="collapse nav-collapse">
+			<ul aria-label="#language ("site-pages")" class="nav nav-collapse" role="menubar">
+				#foreach ($nav_item in $nav_items)
+						#set ($nav_item_attr_selected="")
+						#set ($nav_item_attr_has_popup="")
+						#set ($nav_item_caret="")
+						#set ($nav_item_css_class="lfr-nav-item")
+						#set ($nav_item_link_css_class="")
+
+					#if ($nav_item.isSelected())
+						#set ($nav_item_attr_selected="aria-selected='true'")
+						#set ($nav_item_css_class="$nav_item_css_class selected active")
+					#end
+
+					#if ($nav_item.hasChildren())
+						#set ($nav_item_attr_has_popup="aria-haspopup='true'")
+						#set ($nav_item_caret='<span class="lfr-nav-child-toggle"><i class="icon-caret-down"></i></span>')
+						#set ($nav_item_css_class="$nav_item_css_class dropdown")
+						#set ($nav_item_link_css_class="dropdown-toggle")
+					#end
+
+					<li class="$nav_item_css_class" id="layout_$nav_item.getLayoutId()" $nav_item_attr_selected role="presentation">
+						<a aria-labelledby="layout_$nav_item.getLayoutId()" $nav_item_attr_has_popup 
+							class="$nav_item_link_css_class" 
+							href="$nav_item.getURL()" $nav_item.getTarget() role="menuitem">
+							<span>$nav_item.icon() $nav_item.getName() $nav_item_caret</span>
+						</a>
+
+						#if ($nav_item.hasChildren())
+							<ul class="dropdown-menu child-menu" role="menu">
+								#foreach ($nav_child in $nav_item.getChildren())
+									#set ($nav_child_attr_selected="")
+									#set ($nav_child_css_class="lfr-nav-item")
+
+									#if ($nav_child.isSelected())
+										#set ($nav_child_attr_selected="aria-selected='true'")
+									#end
+
+									#if ($nav_child.hasChildren())
+										#set ($nav_child_css_class="lfr-nav-item")
+										#set ($nav_child_css_class="$nav_item_css_class dropdown")
+										#set ($nav_child_link_css_class="dropdown-toggle")
+									#end
+									
+									<li class="$nav_child_css_class" id="layout_$nav_child.getLayoutId()" $nav_child_attr_selected role="presentation">
+										<a aria-labelledby="layout_$nav_child.getLayoutId()" 
+											class="$nav_child_link_css_class"
+											href="$nav_child.getURL()" $nav_child.getTarget() 
+											role="menuitem">$nav_child.getName()</a>
+									
+										#* CUSTOM CSI - DEBUT *#
+										#if ($nav_child.hasChildren())
+										<ul class="dropdown-menu child-menu nav-niv-2" role="menu">
+											#foreach ($child_niv2 in $nav_child.getChildren())
+												#set($child_niv2_attr_selected="")
+												#set($child_niv2_css_class="child-niv-2")	
+												
+												#if($child_niv2.isSelected())
+													#set($child_niv2_attr_selected="aria-selected='true'")
+													#set($child_niv2_css_class="child-niv-2 selected")
+												#end
+												
+												<li class="$child_niv2_css_class" $child_niv2_attr_selected>
+                                                    <a href="$child_niv2.getURL()" 
+														$child_niv2.getTarget()>
+														<i class="icon-chevron-right"></i>
+														<span>$child_niv2.getName()</span>
+													</a></li>
+											#end
+										</ul>
+										#end
+										#* CUSTOM CSI - FIN *#
+									</li>
+								#end
+							</ul>
+						#end
+					</li>
+				#end
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<script>
+	Liferay.Data.NAV_LIST_SELECTOR = '.navbar-inner .nav-collapse > ul';
+</script>
