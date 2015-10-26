@@ -40,7 +40,7 @@
 
 									#if ($nav_child.hasChildren())
 										#set ($nav_child_css_class="lfr-nav-item")
-										#set ($nav_child_css_class="$nav_item_css_class dropdown")
+										#set ($nav_child_css_class="$nav_child_css_class dropdown")
 										#set ($nav_child_link_css_class="dropdown-toggle")
 									#end
 									
