@@ -51,6 +51,8 @@
 											role="menuitem">$nav_child.getName()</a>
 									
 										#* CUSTOM CSI - DEBUT *#
+										## liferay customize navigation.vm third
+										## https://www.liferay.com/fr/community/forums/-/message_boards/message/28984755
 										#if ($nav_child.hasChildren())
 										<ul class="dropdown-menu child-menu nav-niv-2" role="menu">
 											#foreach ($child_niv2 in $nav_child.getChildren())
