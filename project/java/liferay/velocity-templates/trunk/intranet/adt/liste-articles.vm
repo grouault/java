@@ -1,36 +1,22 @@
 #set ($friendlyUrl = $request.getAttribute("FRIENDLY_URL"))
 #set ($entryId = $friendlyUrl.substring($mathTool.add($friendlyUrl.lastIndexOf("/"), 1)))
-<div class="debug">
-	friendlyUrl = $friendlyUrl<br/>
-	entries = $entries<br/>
-	articleId = $entryId<br/>
-	test = $mathTool.toInteger($entryId)
-</div>
 #if ($mathTool.toInteger($entryId))
-	## one article
-	#set($layoutLocalService = $serviceLocator.findService("com.liferay.portal.service.LayoutLocalService"))
-	#set ($assetEntryLocalService = $serviceLocator.findService("com.liferay.portlet.asset.service.AssetEntryLocalService"))
-	#set ($assetEntry = $assetEntryLocalService.getEntry("com.liferay.portlet.journal.model.JournalArticle", $getterUtil.getLong($entryId)))
-	#set ($groupId = $themeDisplay.getLayout().getGroupId())
-	#set ($journalArticleLocalService = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleLocalService"))
-	#set ($journalArticle = $journalArticleLocalService.fetchLatestIndexableArticle($getterUtil.getLong($assetEntry.getClassPK()) ))
+	##
+	## DETAIL d'un article
+	
+	## recupeation des services.
+	#set( $layoutLocalService = $serviceLocator.findService("com.liferay.portal.service.LayoutLocalService") )
+	#set( $assetEntryLocalService = $serviceLocator.findService("com.liferay.portlet.asset.service.AssetEntryLocalService") )
+	#set( $assetEntry = $assetEntryLocalService.getEntry("com.liferay.portlet.journal.model.JournalArticle", $getterUtil.getLong($entryId)) )
+	#set( $groupId = $themeDisplay.getLayout().getGroupId() )
+	#set( $journalArticleLocalService = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleLocalService") )
+	#set( $journalArticle = $journalArticleLocalService.fetchLatestIndexableArticle($getterUtil.getLong($assetEntry.getClassPK()) ) )
 	#set( $document = $saxReaderUtil.read($journalArticle.getContent()) )
 	#set( $rootElement = $document.getRootElement() )
-	<div class="debug">
-		rootElement = $rootElement<br/>
-		layoutLocalService = $layoutLocalService<br/>
-		#set($layout = $layoutLocalService.getLayout(15613, false, 6)) <br/>
-		layout = $layout<br/> 
-		url = $layout.getName()<br/>
-		portalUtil = $portalUtil<br/>
-		themeDisplay = $themeDisplay<br/>
-		test = $portalUtil.getLayoutFullURL($layout, $themeDisplay)
-	</div>
+		
+	## recuperation des datas de l'article.
 	#set($paragraphes = []) ## paragraphes de l'article.
 	#foreach( $dynamicElement in $rootElement.elements() )	
-		<div class="debug"> 
-			name = $dynamicElement.attributeValue("name") <br/>
-		</div>
 		#if( "ImageArticle" == $dynamicElement.attributeValue("name") )
 			#set( $img = $dynamicElement.element("dynamic-content").getText())
 			#set( $imgElmts = $dynamicElement.elements() )
@@ -59,9 +45,9 @@
 		#end
 	#end
 	
-    ## ARTICLE
+	##
+    ## AFFICHAGE ARTICLE
     ## TEMPLATE DETAIL
-    ##
     <section class="article">
     	## THEMATIQUES
     	<div class="thematiques">$thematique</div>
@@ -90,15 +76,15 @@
 		<div class="content">
 		#if($paragraphes.size() > 0)
 		#foreach($paragraphe in $paragraphes)
-			
+		<div class="paragraphe">
+			##
 			## contexte paragraphe
     		#set($imgIllustrations = [])
-    		#set($linksPage = [])
+    		#set($linkToPages = [])
     		#set($linkUrls = [])
-    		#set($linkDocs = [])
-    		<div class="paragraphe">	
+    		#set($linkDocs = [])		
 			##
-			## recuperation datas contexte paragraphe
+			## recuperation des datas du paragraphe
 			#set( $titlePara = $paragraphe.element("dynamic-content").getText() )	
 			#foreach($elmt in $paragraphe.elements())
 				## image
@@ -130,7 +116,7 @@
 				#end		
     			## LINKTOPAGE - - multivalue
                 #if( "LinkToPage" == $elmt.attributeValue("name"))
-    				#set( $linkToPages = $elmt )
+    				$linkToPages.add($elmt)
     			#end				
        			#if("SeparateurSavoirPlus" == $elmt.attributeValue("name"))
         			#set( $linkToPageSep = $elmt.element("dynamic-content").getText() )
@@ -150,30 +136,7 @@
     				#set( $linkUrlsSep = $elmt.element("dynamic-content").getText() )
 				#end				
 				
-			#end ## for each elmtParagraphe
-			
-			<div class="debug">
-				Paragraphe : <br/>
-				titlePara = $titlePara<br/>
-				imgCrpsTxt = $imgCrpsTxt<br/>
-				imgCrpsTxtPos = $imgCrpsTxtPos<br/>
-				imgCrpsTxtCredit = $imgCrpsTxtCredit<br/>
-				corpsTexte = $corpsTexte<br/>
-				corpsTexteSep = $corpsTexteSep<br/>
-				imgIllustration = $imgIllustrations<br/>
-				imgIllustrationSize = $imgIllustrations.size()<br/>
-				imgIllustrationsSep = $imgIllustrationsSep<br/>
-				linkToPages = $linkToPages<br/>
-				linkToPages.size = $linkToPages.size()<br/>
-				linkToPageSep = $linkToPageSep<br/>
-				linkDocs = $linkDocs<br/>
-				linkDocs.size = $linkDocs.size()<br/>
-				linkDocsSep = $linkDocsSep<br/>			
-				linkUrls = $linkUrls<br/>
-				linkUrls.size = $linkUrls.size()<br/>
-				linkUrlsSep = $linkUrlsSep<br/>	
-			</div>
-			
+			#end ## for each elmtParagraphe		
 			#* 
 			
 			HTML PARAGRAPHE *#
@@ -202,10 +165,12 @@
 					#set($imgSrc = $imgIllustration.element("dynamic-content").getData())
 					#set($creditIllustration = $imgIllustration.element("dynamic-element").element("dynamic-content").getData())
 					#if ($imgSrc != "")
-						<img class="illustration" alt="" src="$imgSrc" />
+					<div class="illustration">
+						<img alt="" src="$imgSrc" />
 						<div class="infos">
 							<span class="credit">$creditIllustration</span>
 						</div>
+					</div>
 					#end
 				#end	
 				<div class="separateur-illustration sep-$imgIllustrationsSep"></div>
@@ -215,9 +180,25 @@
 			#if($linkToPages.size() > 0)
 				<ul class="liens-internes links">
                 #foreach ($linkToPage in $linkToPages)
-                    #if ($linkToPage.getData() != "")
-    				<li><a class="interne" href="$linkToPage.getFriendlyUrl()">$linkToPage.LabelLinkIntranet.getData()</a></li>
-                	#end
+					#set($lpKeyLayout = $linkToPage.element("dynamic-content").getData())
+					#set($lpLabel = $linkToPage.element("dynamic-element").element("dynamic-content").getData())
+					#if ($lpKeyLayout != "" && $lpLabel != "")
+						## traitement de la key : layout_id@private_layout@group_id
+						#set($tokensLayout = $lpKeyLayout.split("@"))
+						#set($layoutId = $tokensLayout.get(0))
+						#set($isPrivate = false)
+						#if($tokensLayout.get(1) != "" && $tokensLayout.get(1).contains("private"))
+							#set($isPrivate = true)
+						#end
+						#set($groupId = $tokensLayout.get(2))
+						## recuperation de la Friendly URL
+						#set( $layout = $layoutLocalService.getLayout($getterUtil.getLong($groupId), $isPrivate, $getterUtil.getLong($layoutId)) )
+						#set( $friendlyUrl = $portalUtil.getLayoutFullURL($layout, $themeDisplay) )
+						## affichage du lien.
+    					#if ($friendlyUrl != "")
+							<li><a class="interne" href="$friendlyUrl">$lpLabel</a></li>
+						#end
+					#end
     			#end
     			</ul>
 				<div class="separateur-liens-internes sep-$linkToPageSep"></div>
@@ -253,6 +234,23 @@
 		#end
 		</div> ## content
 	<section>
+	##
+	## breadcrumbs
+	#set ($bcEntries = $portal.getClass().forName("java.util.ArrayList").newInstance())
+	#set ($bcEntry = $portal.getClass().forName("com.liferay.portal.kernel.servlet.taglib.ui.BreadcrumbEntry").newInstance())
+	$bcEntry.setTitle($assetEntry.getTitle($locale))
+	#set ($dummy = $bcEntries.add($bcEntry))
+	$request.setAttribute("LIFERAY_SHARED_PORTLET_BREADCRUMBS", $bcEntries)
+	$request.setAttribute("view.jsp-results", $portal.getClass().forName("java.util.ArrayList").newInstance())	
+	## 
+	## Cacher la pagination
+	<script>
+		AUI().ready(
+			function(A) {
+				A.one('.taglib-page-iterator').hide();
+			}
+		);
+	</script>	
 #else
 	## liste article
     <section class="articles">
@@ -298,7 +296,7 @@
                     	<span class="thematique sep">$thematique</span>
                     </div>
                     <p class="chapeau">$chapeau</p>
-            		<p><a href="/group/intranet/liste-des-articles/-/asset_publisher/id/$entry.getClassPK()" class="link-red">Lire la suite ...</a></p>
+            		<p><a href="/group/portailintranet/pages-articles/-/asset_publisher/id/$entry.getClassPK()" class="link-red">Lire la suite ...</a></p>
                 </article>	
     		#end			
     	#end

@@ -1,0 +1,102 @@
+## ARTICLE
+## TEMPLATE DETAIL
+##
+<section class="article">
+	## THEMATIQUES
+	<div class="thematiques">$Thematique.getData()</div>
+	## TITRE
+	<h1 class="titre">$reserved-article-title.data</h1>		
+	#*
+	
+	INTRO *#
+	<div class="intro">
+		#if ($ImageArticle.getData() != "")
+		<div class="image left">
+			<img alt="Image de l'article" src="$ImageArticle.getData()" />
+			<div class="infos">
+				<span class="credit">$ImageArticle.Credits.getData()</span>
+				<span class="legende">$ImageArticle.Legende.getData()</span>
+			</div>
+		</div>
+		 #end 
+		<p class="chapeau">$Chapeau.getData()</p>
+	</div>
+	<div class="separateur-chapeau sep-$Chapeau.SeparateurChapeau.getData()"></div>
+	#*
+	
+	CONTENT *#
+	#if (!$InterTitre.getSiblings().isEmpty())
+	<div class="content">
+	  #foreach ($cur_InterTitre in $InterTitre.getSiblings())		
+		## PARAGRAPHE
+		<div class="paragraphe">
+			## titre
+            #if ($cur_InterTitre.getData() != "")
+				<h2 class="inter-titre">$cur_InterTitre.getData()</h2>
+			#end			
+			
+			## image 
+            #if ($cur_InterTitre.ImageCorpsTexte.getData() != "")    			
+    			<div class="image $cur_InterTitre.ImageCorpsTexte.PositionImageCorpsTexte.getData()">
+    				<img alt="Image du corps de texte" src="$cur_InterTitre.ImageCorpsTexte.getData()" />
+    				<div class="infos">
+    					<span class="credit">$cur_InterTitre.ImageCorpsTexte.CreditsCorpsTexte.getData()</span>
+    				</div>
+    			</div>				
+			#end			
+			#*
+			
+			corps de texte *#
+            #if ($cur_InterTitre.CorpsTexte.getData() != "")
+				<p class="corps-texte">$cur_InterTitre.CorpsTexte.getData()</p>
+				<div class="separateur-paragraphe sep-$cur_InterTitre.SeparateurCorpsTexte.getData()"></div>
+            #end			
+			#*
+			
+			image d'illustration *#
+			<div class="illustrations">
+            #foreach ($cur_ImageIllustration in $cur_InterTitre.ImageIllustration.getSiblings())
+                #if ($cur_ImageIllustration.getData() != "")
+					<img class="illustration" alt="" src="$cur_ImageIllustration.getData()" />
+                #end
+            #end			
+			</div>
+			<div class="separateur-illustration sep-$cur_InterTitre.SeparateurImageIllustration.getData()"></div>
+			#* 
+			
+			LIENS INTERNES *#
+			<ul class="liens-internes links">
+            #foreach ($cur_LinkToPage in $cur_InterTitre.LinkToPage.getSiblings())
+                #if ($cur_LinkToPage.getData() != "")
+				<li><a class="interne" href="$cur_LinkToPage.getFriendlyUrl()">$cur_LinkToPage.LabelLinkIntranet.getData()</a></li>
+            	#end
+			#end
+			</ul>
+			<div class="separateur-liens-internes sep-$cur_InterTitre.SeparateurSavoirPlus.getData()"></div>				
+			#* 
+			
+			DOCUMENT *#
+			<ul class="liens-doc links">
+            #foreach ($cur_DAM in $cur_InterTitre.DAM.getSiblings())
+                #if ($cur_DAM.getData() != "")
+				<li><a class="document" href="$cur_InterTitre.DAM.getData()"> $cur_DAM.LabelLinkDocument.getData()</a></li>
+                #end
+			#end
+			</ul>
+			<div class="separateur-liens-docs sep-$cur_InterTitre.SeparateurDocument.getData()"></div>			
+			#* 
+
+			LIENS EXTERNES *#
+			<ul class="liens-externes links">
+            #foreach ($cur_LinkUrl in $cur_InterTitre.LinkUrl.getSiblings())
+                #if ($cur_LinkUrl.getData() != "")
+				<li><a class="externe" href="$cur_LinkUrl.getData()" target="_blank">$cur_LinkUrl.LabelLinkUrl.getData()</a></li>
+                #end
+			#end
+			</ul>
+			<div class="separateur-liens-externes sep-$cur_InterTitre.SeparateurLinkUrl.getData()"></div>
+		</div>	
+	  #end		
+	</div>
+	#end
+</section>

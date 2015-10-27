@@ -1,0 +1,46 @@
+"<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Thematique" type="list" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[Evenement]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Contrib" type="list" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[DSI]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageBreve" type="image" index-type="keyword" index="0">
+		<dynamic-element name="Credit" index="0" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[uni]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US" id="2654502">/image/journal/article?img_id=2654502&amp;t=1445873913076</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Accroche" type="text_box" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[Le FabLab et le LivingLab rouvrent petit à petit. Depuis aujourd'hui, ce sont les seuls espaces du Carrefour Numérique² ouverts au public.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Content" type="text_area" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[<span style="font-size: small;"><span style="font-family: Arial;">Le FabLab et le LivingLab rouvrent petit à petit. Depuis aujourd'hui, ce sont les seuls espaces du Carrefour Numérique² ouverts au public. Une programmation spéciale pour les enfants, axée sur l'expo <em>Chiens et chats</em>, est prévue pour les vacances de la Toussaint<i> : </i>fabrication de chiens et de chats à la découpeuse laser, origamis et réalisation de BD numériques.</span></span>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageSupp" type="image" index-type="keyword" index="0">
+		<dynamic-element name="CreditsBreve" index="0" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinkToPage" type="link_to_layout" index-type="keyword" index="0">
+		<dynamic-element name="LabelLinkIntranet" index="0" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Document" type="document_library" index-type="keyword" index="0">
+		<dynamic-element name="LabelLinkDocument" index="0" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinkUrl" type="text" index-type="keyword" index="0">
+		<dynamic-element name="LabelLinkUrl" index="0" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>"

@@ -1,0 +1,55 @@
+<div class="debug"> 
+	name = $dynamicElement.attributeValue("name") <br/>
+</div>
+<div class="debug">
+	friendlyUrl = $friendlyUrl<br/>
+	entries = $entries<br/>
+	articleId = $entryId<br/>
+	test = $mathTool.toInteger($entryId)
+</div>
+<div class="debug">
+	Paragraphe : <br/>
+	titlePara = $titlePara<br/>
+	imgCrpsTxt = $imgCrpsTxt<br/>
+	imgCrpsTxtPos = $imgCrpsTxtPos<br/>
+	imgCrpsTxtCredit = $imgCrpsTxtCredit<br/>
+	corpsTexte = $corpsTexte<br/>
+	corpsTexteSep = $corpsTexteSep<br/>
+	imgIllustration = $imgIllustrations<br/>
+	imgIllustrationSize = $imgIllustrations.size()<br/>
+	imgIllustrationsSep = $imgIllustrationsSep<br/>
+	linkToPages = $linkToPages<br/>
+	linkToPages.size = $linkToPages.size()<br/>
+	linkToPageSep = $linkToPageSep<br/>
+	linkDocs = $linkDocs<br/>
+	linkDocs.size = $linkDocs.size()<br/>
+	linkDocsSep = $linkDocsSep<br/>			
+	linkUrls = $linkUrls<br/>
+	linkUrls.size = $linkUrls.size()<br/>
+	linkUrlsSep = $linkUrlsSep<br/>	
+</div>	
+<li>layoutId = $layoutId | isPrivate  = $isPrivate | groupId = $groupId</li>
+
+## LINK-TO-PAGE IN ADT
+<div class="debug">
+	rootElement = $rootElement<br/>
+	layoutLocalService = $layoutLocalService<br/>
+	#set($layout = $layoutLocalService.getLayout(2606501, false, 2)) <br/>
+	layout = $layout<br/> 
+	url = $layout.getName()<br/>
+	portalUtil = $portalUtil<br/>
+	themeDisplay = $themeDisplay<br/>
+	test = $portalUtil.getLayoutFullURL($layout, $themeDisplay)
+</div>
+## tableau
+#foreach($token in $lpKeyLayout.split("@"))
+	<li>token = $token</li>
+#end	
+
+## ADT
+##
+## recuperation des champs par defauts
+http://www.surekhatech.com/blog/liferay-application-display-template-ad-1
+## date de publication
+#set($publishDate = $dateTool.format("dd/MM/yyyy", $dateTool.toDate( "EEE, dd MMM yyyy hh:mm:ss Z" , $entry.getPublishDate())))
+<span class="date-pub">$publishDate</span>

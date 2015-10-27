@@ -1,0 +1,18 @@
+## FLASH INFO
+## TEMPLATE BLINK
+
+## CONTEXTE
+#set ( $labelFlashInfo = $FlashInfo.getData() ) 
+#set ( $link = "" )
+#if ( $LinkToPage.getData() != "" )
+	#set ( $link = $LinkToPage.getFriendlyUrl() )
+#elseif ( $Document.getData() != "" )
+	#set ( $link = $Document.getData() )
+#end
+	
+## HTML
+#if ( $labelFlashInfo != "" && $link != "")
+<div class="flashinfo">	
+	<a class="blink" href="$link">$labelFlashInfo</a>
+</div>
+#end

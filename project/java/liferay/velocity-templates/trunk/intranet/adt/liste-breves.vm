@@ -1,0 +1,152 @@
+#set ($friendlyUrl = $request.getAttribute("FRIENDLY_URL"))
+#set ($entryId = $friendlyUrl.substring($mathTool.add($friendlyUrl.lastIndexOf("/"), 1)))
+#if ($mathTool.toInteger($entryId))
+	#set ($assetEntryLocalService = $serviceLocator.findService("com.liferay.portlet.asset.service.AssetEntryLocalService"))
+	#set ($assetEntry = $assetEntryLocalService.getEntry("com.liferay.portlet.journal.model.JournalArticle", $getterUtil.getLong($entryId)))
+	#set ($groupId = $themeDisplay.getLayout().getGroupId())
+	#set ($journalArticleLocalService = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleLocalService"))
+	#set ($journalArticle = $journalArticleLocalService.fetchLatestIndexableArticle($getterUtil.getLong($assetEntry.getClassPK()) ))
+	#set( $document = $saxReaderUtil.read($journalArticle.getContent()) )
+	#set( $rootElement = $document.getRootElement() )
+	#foreach( $dynamicElement in $rootElement.elements() )
+		#if( "ImageBreve" == $dynamicElement.attributeValue("name") )
+			#set( $img = $dynamicElement.element("dynamic-content").getText())
+		#end
+		#if( "Accroche" == $dynamicElement.attributeValue("name") )
+			#set( $accroche = $dynamicElement.element("dynamic-content").getText())
+		#end
+		#if( "Content" == $dynamicElement.attributeValue("name") )
+			#set( $contenu = $dynamicElement.element("dynamic-content").getText())
+		#end
+		#if( "Thematique" == $dynamicElement.attributeValue("name"))
+			#set( $thematique = $dynamicElement.element("dynamic-content").getText() )
+		#end
+		#if( "Contrib" == $dynamicElement.attributeValue("name"))
+			#set( $contrib = $dynamicElement.element("dynamic-content").getText() )
+		#end
+		#if( "LinkToPage" == $dynamicElement.attributeValue("name"))
+			#set( $linkPage = $dynamicElement.element("dynamic-content") )
+		#end
+		#if( "Document" == $dynamicElement.attributeValue("name"))
+			#set( $linkDocument = $dynamicElement.element("dynamic-content").getData() )
+			#set( $labelDocument = $dynamicElement.element("dynamic-element").element("dynamic-content").getData() )
+		#end
+		#if( "LinkUrl" == $dynamicElement.attributeValue("name"))
+			#set( $linkUrl = $dynamicElement.element("dynamic-content").getData() )
+			#set( $labelLinkUrl = $dynamicElement.element("dynamic-element").element("dynamic-content").getData() )
+		#end
+		#set( $showLinkUrl = ($linkUrl != '' && $labelLinkUrl != ''))
+		#set( $showLinkDocument = ($linkDocument != '' && $labelDocument != ''))
+	#end
+	## HTML
+    <article class="breve breve-detail">
+        ## image breve.
+        <a href="$breveUrl"><img src="$img" alt="picto breve"></a>
+        ## Titre
+        <h3><a href="$breveUrl">$assetEntry.getTitle($locale)</a></h3>
+        ## infos.
+        <div class="infos">
+        	<span class="date-pub">TODO date publication</span>
+			#if($contrib != "")
+        	<span class="direction sep">$contrib</span>
+			#end
+			#if($thematique != "")
+        	<span class="thematique sep">$thematique</span>
+			#end
+		</div>
+        <p class="accroche">$accroche</p>
+		<p class="content">$contenu</p>
+		## affichage des liens.
+		#if($showLinkUrl || $showLinkDocument)
+    		<ul class="breves-links links">
+				## LINK TO PAGE
+				
+				## DOCUMENT
+        		#if($showLinkDocument)
+    			<li><a class="document" href="$linkDocument" target="_blank">$labelDocument</a></li>
+        		#end				
+				## LINK-URL
+        		#if($showLinkUrl)
+    			<li><a class="externe" href="$linkUrl" target="_blank">$labelLinkUrl</a></li>
+        		#end
+			</ul>
+		#end
+    </article>	
+	#set ($bcEntries = $portal.getClass().forName("java.util.ArrayList").newInstance())
+	#set ($bcEntry = $portal.getClass().forName("com.liferay.portal.kernel.servlet.taglib.ui.BreadcrumbEntry").newInstance())
+	$bcEntry.setTitle($assetEntry.getTitle($locale))
+	#set ($dummy = $bcEntries.add($bcEntry))
+	$request.setAttribute("LIFERAY_SHARED_PORTLET_BREADCRUMBS", $bcEntries)
+	$request.setAttribute("view.jsp-results", $portal.getClass().forName("java.util.ArrayList").newInstance())
+	<!-- cacher la pagination -->
+	<script>
+		AUI().ready(
+			function(A) {
+				A.one('.taglib-page-iterator').hide();
+			}
+		);
+	</script>
+#elseif (!$entries.isEmpty())
+	<section class="breves">
+	#foreach ($entry in $entries)
+		#set($renderer = $entry.getAssetRenderer() )
+		#set($className = $renderer.getClassName() )
+		#set( $img = "")
+	    #set( $accroche = "")
+		#set( $breveUrl = "")
+		#if( $className == "com.liferay.portlet.journal.model.JournalArticle" )
+			#set( $journalArticle = $renderer.getArticle() )
+			#set( $document = $saxReaderUtil.read($journalArticle.getContent()) )
+			#set( $rootElement = $document.getRootElement() )
+			
+			#set($classNameLocalService = $serviceLocator.findService("com.liferay.portal.service.ClassNameLocalService"))
+			#set($jaClassNameId = $classNameLocalService.fetchClassNameId("com.liferay.portlet.journal.model.JournalArticle"))
+			
+			#set($ddmStructureLocalService  = $serviceLocator.findService("com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalService"))
+			#set($structure = $ddmStructureLocalService.fetchStructure($getterUtil.getLong($groupId), $getterUtil.getLong($jaClassNameId), $journalArticle.structureId))
+			#if ($structure.name.contains("C-Breves"))
+				#foreach( $dynamicElement in $rootElement.elements() )
+					#if( "ImageBreve" == $dynamicElement.attributeValue("name") )
+						#set( $img = $dynamicElement.element("dynamic-content").getText())
+					#end
+					#if( "Accroche" == $dynamicElement.attributeValue("name") )
+						#set( $accroche = $dynamicElement.element("dynamic-content").getText())
+					#end
+					#if( "Contrib" == $dynamicElement.attributeValue("name") )
+						#set( $direction = $dynamicElement.element("dynamic-content").getText())
+					#end	
+					#if( "Thematique" == $dynamicElement.attributeValue("name") )
+						#set( $thematique = $dynamicElement.element("dynamic-content").getText())
+					#end					
+				#end
+				##
+				## HTML - Breve Item
+                <article class="breve breve-item">
+                    ## image breve.
+                    <a href="$breveUrl"><img src="$img" alt="picto breve"></a>
+                    ## Titre
+                    <h3><a href="$breveUrl">$entry.getTitle($locale)</a></h3>
+                    ## infos.
+                    <div class="infos">
+						#if($entry.getPublishDate() != "")
+							#set($publishDate = $dateTool.format("dd/MM/yyyy", $dateTool.toDate( "EEE, dd MMM yyyy hh:mm:ss Z" , $entry.getPublishDate())))
+							<span class="date-pub">$publishDate</span>
+						#end
+						#if($direction != "")
+                    	<span class="direction sep">$direction</span>
+						#end
+						#if($thematique != "")
+						<span class="thematique sep">$thematique</span>
+						#end
+					</div>
+                    <p class="accroche">$accroche</p>
+                    <p><a href="/group/guest/liste-des-breves/-/asset_publisher/id/$entry.getClassPK()" class="link-red">Lire la suite ...</a></p>
+                </article>				
+			#end
+		#end
+		#set ($currentPos = ($mathTool.add($currentPos, 1)))
+	#end
+	</section>
+	## lien toutes les breves
+	<p><a class="red-link" href="#">Voir toutes les brèves</a></p>    
+#end

@@ -1,0 +1,71 @@
+## CONTEXTE
+#set($containerWidthValue = $containerWidth.Data)
+#set($containerHeightValue = $containerHeight.Data)
+#set($interval = $intervalTime.Data)
+#set($imgMaxWidth = $containerWidthValue + 'px')
+#set($randomValue=$mathTool.random(100,10000)) 
+#set($idCarousel = "diaporama" + $randomValue)
+
+<section class="diaporama">
+#if($images.size() > 0)
+<div id="widget-wrapper">
+    <div class="carousel-wrapper">
+		 <!-- TEMPLATE CONTAINTER DEBUT -->
+		<div class="carousel-container stage">
+			<div id="idCarousel" class="carousel-diapo-events carousel-stage">
+				<ul id="gallery">					
+				## iteration sur les images.
+				#foreach ($image in $images.getSiblings())
+            		
+            		#set($urlImage = $image.getData())
+            		#set($urlCible = $image.imageLink.getFriendlyUrl())
+            		#set($credit = $image.Credits.getData())
+            		#set($legende = $image.Legende.getData())
+            		#set($showInfos = ($credit!= "" || $legende != ""))	
+					
+					## diapositive
+					<li class="carousel-diapo-events__item bx-clone" data-id="">
+						<img src="$urlImage" alt="" />
+						#if($urlCible != "") 
+							<a href="$urlCible"><img src="$urlImage" style="max-width: $imgMaxWidth;"></a>	
+						#else
+							<img src="$urlImage" />
+						#end
+						#if ($showInfos) 
+						<div class="content-infos">
+							<div class="sub-content-infos">
+								<p class="title"></p>
+								<div class="sub-content-datas">
+									<p class="legende">$legende</p>
+									<p class="credit">$credit</p>
+								</div>
+							</div>
+						</div>
+						#end
+					</li>		
+				#end	
+				</ul>
+			</div>
+			<a href="#" class="btn-left prev-stage"><span class="fa fa-angle-left"></span></a>
+			<a href="#" class="btn-right next-stage"><span class="fa fa-angle-right"></span></a>
+		</div>	
+		<!-- TEMPLATE CONTAINTER FIN -->
+		<!-- TEMPLATE NAVIGATION DEBUT -->
+		<div class="carousel-container navigation">
+			<div class="carousel-diapo-events carousel-navigation">
+				<ul id="gallery-thumbs">
+				#foreach ($image in $images.getSiblings())
+					#set($urlImage = $image.getData())
+    				<li class="thumb-item"><img style="display: none;" src="$urlImage" alt=""></li>				
+				#end
+				</ul>
+			</div>
+			<a href="#" class="btn-left prev-navigation"><span class="fa fa-angle-left"></span></a>
+			<a href="#" class="btn-right next-navigation"><span class="fa fa-angle-right"></span></a>			
+		</div>
+	</div>
+</div>
+#else
+	<div>Le diaporama ne contient pas d'images.</div>
+#end
+</section>		
