@@ -1,0 +1,11 @@
+<!-- CSS -->
+## default css
+#set( $cssFiles = ["intranet.css","li-scroller.css"] )
+#foreach( $cssFile in $cssFiles )
+<link type="text/css" rel="stylesheet" href="$css_folder/$cssFile"></link>
+#end
+## widget css
+#set( $wdgCssFiles = ["widget-common.css","widget-diapo-events.css"] )
+#foreach( $wdgFile in $wdgCssFiles )
+<link type="text/css" rel="stylesheet" href="$css_folder/widget/$wdgFile"></link>
+#end

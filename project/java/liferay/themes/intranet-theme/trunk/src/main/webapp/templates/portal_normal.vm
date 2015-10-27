@@ -11,12 +11,10 @@
 
 	$theme.include($top_head_include)
 	
-	<!-- CSS -->
-	#set( $cssFiles = ["intranet.css","li-scroller.css"] )
-    #foreach( $cssFile in $cssFiles )
-    <link type="text/css" rel="stylesheet" href="$css_folder/$cssFile"></link>
-	#end
+	## Feuille de style.
+	#parse ("$full_templates_path/include-css.vm")
 	
+dee	
 </head>
 
 <body class="$css_class">
@@ -84,6 +82,7 @@ $theme.include($body_bottom_include)
 
 $theme.include($bottom_include)
 
+## Javascript
 #parse ("$full_templates_path/include-js.vm")
 
 </body>
