@@ -1,0 +1,17 @@
+## MENU DEROULANT
+## TEMPLATE DETAIL
+## Affiche le menu deroulant
+#if (!$Texte_Defilant.getSiblings().isEmpty())
+<ul class="texte-defilant">
+	#foreach ($cur_Texte_Defilant in $Texte_Defilant.getSiblings())
+		#set( $link = "#" )
+        #if ($cur_Texte_Defilant.LinkToPage.getData() != "")
+			#set( $link = $cur_Texte_Defilant.LinkToPage.getFriendlyUrl() )
+    	#end		
+        #if ($cur_Texte_Defilant.Documents.getData() != "")
+			#set( $link = $cur_Texte_Defilant.Documents.getData() )
+		#end
+		<li><a href="$link">$cur_Texte_Defilant.getData()</a></li>
+	#end
+</ul>
+#end

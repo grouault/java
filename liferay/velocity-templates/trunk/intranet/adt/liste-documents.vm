@@ -1,0 +1,76 @@
+#set ($fileService = $serviceLocator.findService("com.liferay.portlet.documentlibrary.service.DLFileEntryLocalService"))
+#set ($fileEntryTypeService = $serviceLocator.findService("com.liferay.portlet.documentlibrary.service.DLFileEntryTypeLocalService"))
+#set ($dlAppLocalService = $serviceLocator.findService("com.liferay.portlet.documentlibrary.service.DLAppLocalService"))
+#set ($groupId = $getterUtil.getLong($groupId))
+
+#set ($friendlyUrl = $request.getAttribute("FRIENDLY_URL"))
+#set ($entryId = $friendlyUrl.substring($mathTool.add($friendlyUrl.lastIndexOf("/"), 1)))
+
+#if ($mathTool.toInteger($entryId))
+	#set ($fileEntry = $fileService.fetchDLFileEntry($getterUtil.getLong($entryId)))
+	#set ($fileEntryTypeId = $fileEntry.getFileEntryTypeId())
+	#if ($fileEntry)
+		#set ($dlFileEntryType = $fileEntryTypeService.getFileEntryType($fileEntryTypeId))
+		#set ($ddmStructure = $dlFileEntryType.getDDMStructures().get(0))
+		#if ($ddmStructure.getName($locale) == "Fiche de Poste")
+			<div class="document">
+				#set ($urlEncodedTitle = $httpUtil.encodeURL($htmlUtil.unescape($fileEntry.getTitle())))
+				#set ($fieldsMap = $fileEntry.getFieldsMap($fileEntry.getFileVersion().getFileVersionId()))
+				#set ($fields = $fieldsMap.get($ddmStructure.getStructureKey()))
+				#set ($direction = $fields.get("Direction").getRenderedValue($locale))
+				#set ($directionLabel = $fields.get("Direction").getName())
+				#set ($dateCandidature = $dateTool.format("dd/MM/yyyy", $fields.get("DateCandidature").getValue()))
+				#set ($dateCandidatureLabel = $fields.get("DateCandidature").getName())
+				<h1>$fileEntry.getTitle()</h1>
+				<span class="document-thumbnail">
+					#set ($file = $dlAppLocalService.getFileEntry($getterUtil.getLong($entryId)))
+					#set ($thumbnailsrc = $dlUtil.getThumbnailSrc($file, null, $themeDisplay))
+					<a href="/documents/$groupId/$fileEntry.getFolder().getFolderId()/$urlEncodedTitle/$fileEntry.getUuid()" target="_blank">
+						<img alt="thumbnail" border="no" class="thumbnail" src="$thumbnailsrc" style="max-height: $getterUtil.getInteger($propsUtil.get('dl.file.entry.thumbnail.max.height'))px; max-width: $getterUtil.getInteger($propsUtil.get('dl.file.entry.thumbnail.max.width'))px;" />
+					</a>
+				</span>
+				<span class="description">
+					<p>$fileEntry.getDescription()</p>
+				</span>
+				<span class="detail">
+					$directionLabel : $direction
+				</span>
+				<span class="detail">
+					$dateCandidatureLabel : $dateCandidature
+				</span>
+			</div>
+		#end
+	#end
+	#set ($bcEntries = $portal.getClass().forName("java.util.ArrayList").newInstance())
+	#set ($bcEntry = $portal.getClass().forName("com.liferay.portal.kernel.servlet.taglib.ui.BreadcrumbEntry").newInstance())
+	$bcEntry.setTitle($fileEntry.getTitle())
+	#set ($dummy = $bcEntries.add($bcEntry))
+	$request.setAttribute("LIFERAY_SHARED_PORTLET_BREADCRUMBS", $bcEntries)
+#elseif (!$entries.isEmpty())
+	<div class="documents">
+	<ul>
+	#foreach ($entry in $entries)
+		#set ($renderer = $entry.getAssetRenderer() )
+		#set ($className = $renderer.getClassName() )
+		#set ($fileEntry = "")
+		#if( $className == "com.liferay.portlet.documentlibrary.model.DLFileEntry" )
+			#set ($fileEntry = $fileService.fetchDLFileEntry($entry.getClassPK()))
+			#set ($fileEntryTypeId = $fileEntry.getFileEntryTypeId())
+			#set ($dlFileEntryType = $fileEntryTypeService.getFileEntryType($fileEntryTypeId))
+			#set ($ddmStructure = $dlFileEntryType.getDDMStructures().get(0))
+			#if ($ddmStructure.getName($locale) == "Fiche de Poste")
+				#set ($urlEncodedTitle = $httpUtil.encodeURL($htmlUtil.unescape($fileEntry.getTitle())))
+				#set ($fieldsMap = $fileEntry.getFieldsMap($fileEntry.getFileVersion().getFileVersionId()))
+				#set ($fields = $fieldsMap.get($ddmStructure.getStructureKey()))
+				##date: $dateTool.format("dd/MM/yyyy", $fields.get("DateCandidature").getValue())
+				#set ($direction = $fields.get("Direction").getRenderedValue($locale))
+				<li class="titre">
+					<a href="/web/accueil/liste-des-documents/-/asset_publisher/id/$fileEntry.getFileEntryId()">$fileEntry.getTitle() ($direction)</a>
+					<a href="/documents/$groupId/$fileEntry.getFolder().getFolderId()/$urlEncodedTitle/$fileEntry.getUuid()" target="_blank">Télécharger</a>
+				</li>
+			#end
+		#end
+	#end
+	</ul>
+	</div>
+#end

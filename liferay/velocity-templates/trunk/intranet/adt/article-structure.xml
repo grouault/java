@@ -14,15 +14,13 @@
 		<dynamic-element name="SeparateurImageArticle" index="0" type="list" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-content language-id="en_US" id="2606770">/image/journal/article?img_id=2606770&amp;t=1445444333236</dynamic-content>
+		<dynamic-content language-id="en_US" id="2650502">/image/journal/article?img_id=2650502&amp;t=1445851086514</dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="Chapeau" type="text_area" index-type="keyword" index="0">
 		<dynamic-element name="SeparateurChapeau" index="0" type="list" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-content language-id="en_US"><![CDATA[<p>On pensait en savoir beaucoup sur les chiens et les chats. Pas si sûr… Cette expo à la Cité passe à la loupe les connaissances scientifiques, sociologiques et culturelles actuelles, notamment des données d’éthologie en encore peu diffusées.</p>
-
-<p>&nbsp;</p>]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[On pensait en savoir beaucoup sur les chiens et les chats. Pas si sûr… Cette expo à la Cité passe à la loupe les connaissances scientifiques, sociologiques et culturelles actuelles, notamment des données d’éthologie en encore peu diffusées]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="InterTitre" type="text" index-type="keyword" index="0">
 		<dynamic-element name="ImageCorpsTexte" index="0" type="image" index-type="keyword">
@@ -32,7 +30,7 @@
 			<dynamic-element name="CreditsCorpsTexte" index="0" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[crédits image]]></dynamic-content>
 			</dynamic-element>
-			<dynamic-content language-id="en_US" id="2606771">/image/journal/article?img_id=2606771&amp;t=1445444333245</dynamic-content>
+			<dynamic-content language-id="en_US" id="2650503">/image/journal/article?img_id=2650503&amp;t=1445851086688</dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="CorpsTexte" index="0" type="text_area" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[<p>L’idée de cette expo m’est venue tout bêtement quand j’ai pris conscience de toutes les idées reçues que nous pouvions avoir sur les chiens et les chats. Pas mal de recherches ont été menées sur leurs comportements, mais peu sont connues.</p>
@@ -88,7 +86,7 @@
 			<dynamic-element name="CreditsCorpsTexte" index="1" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[credits]]></dynamic-content>
 			</dynamic-element>
-			<dynamic-content language-id="en_US" id="2606774">/image/journal/article?img_id=2606774&amp;t=1445444333255</dynamic-content>
+			<dynamic-content language-id="en_US" id="2650506">/image/journal/article?img_id=2650506&amp;t=1445851086744</dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="CorpsTexte" index="1" type="text_area" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[<span style="font-size: small;"><span style="font-family: Arial;">'ai conçu la scénographie et assuré&nbsp;la direction artistique. Nous avons élaboré un scénario qui englobe les différents contenus de l’expo, tout en imaginant un esthétisme caractéristique pour chaque partie avec des coloris distincts.</span></span>]]></dynamic-content>
@@ -100,13 +98,13 @@
 			<dynamic-element name="CreditsIllustration" index="1" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[avatar]]></dynamic-content>
 			</dynamic-element>
-			<dynamic-content language-id="en_US" id="2606775">/image/journal/article?img_id=2606775&amp;t=1445444333263</dynamic-content>
+			<dynamic-content language-id="en_US" id="2650507">/image/journal/article?img_id=2650507&amp;t=1445851086756</dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="ImageIllustration" index="2" type="image" index-type="keyword">
 			<dynamic-element name="CreditsIllustration" index="2" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[tttt]]></dynamic-content>
 			</dynamic-element>
-			<dynamic-content language-id="en_US" id="2606776">/image/journal/article?img_id=2606776&amp;t=1445444333270</dynamic-content>
+			<dynamic-content language-id="en_US" id="2650508">/image/journal/article?img_id=2650508&amp;t=1445851086767</dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="SeparateurImageIllustration" index="1" type="list" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[pointille]]></dynamic-content>
@@ -115,16 +113,16 @@
 			<dynamic-element name="LabelLinkIntranet" index="1" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[lien vers une page]]></dynamic-content>
 			</dynamic-element>
-			<dynamic-content language-id="en_US"><![CDATA[11@private-group@2606501]]></dynamic-content>
+			<dynamic-content language-id="en_US"><![CDATA[11@public@2606501]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="LinkToPage" index="2" type="link_to_layout" index-type="keyword">
 			<dynamic-element name="LabelLinkIntranet" index="2" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[lien vers une 2eme page]]></dynamic-content>
 			</dynamic-element>
-			<dynamic-content language-id="en_US"><![CDATA[3@private-group@2606501]]></dynamic-content>
+			<dynamic-content language-id="en_US"><![CDATA[2@public@2606501]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="SeparateurSavoirPlus" index="1" type="list" index-type="keyword">
-			<dynamic-content language-id="en_US"><![CDATA[trait]]></dynamic-content>
+			<dynamic-content language-id="en_US"><![CDATA[non]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="DAM" index="1" type="document_library" index-type="keyword">
 			<dynamic-element name="LabelLinkDocument" index="1" type="text" index-type="keyword">

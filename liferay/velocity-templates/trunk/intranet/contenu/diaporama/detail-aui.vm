@@ -1,0 +1,77 @@
+## DIAPORAMA
+## TEMPLATE DETAIL
+## AlloyUI - carousel
+
+## CONTEXTE
+#set($containerWidthValue = $containerWidth.Data)
+#set($containerHeightValue = $containerHeight.Data)
+#set($interval = $intervalTime.Data)
+#set($imgMaxWidth = $containerWidthValue + 'px')
+#set($randomValue=$mathTool.random(100,10000)) 
+#set($idCarousel = "carousel" + $randomValue)
+
+## HTML
+<section class="diaporama">
+#if($images.size() > 0)
+	<div id="$idCarousel">
+	#foreach ($image in $images.getSiblings())
+		
+		#set($urlImage = $image.getData())
+		#set($urlCible = $image.imageLink.getFriendlyUrl())
+		#set($credit = $image.Credits.getData())
+		#set($legende = $image.Legende.getData())
+		#set($showInfos = ($credit!= "" || $legende != ""))		
+		
+		## iteration sur les items	
+		<div class="carousel-item">
+			<div class="carousel-content-item">
+    			## image
+    			#if($urlCible != "") 
+    			<a href="$urlCible"><img src="$urlImage" style="max-width: $imgMaxWidth;"></a>	
+    			#else
+    			<img src="$urlImage" />
+    			#end
+    			## infos complementaire a l'image.
+    			#if ($showInfos) 
+    			<div class="carousel-content-infos">
+    				<div class="credit">$credit</div>
+                    <div class="legende">$legende</div>
+    			</div>
+				#end
+			</div>
+		</div>
+		
+	#end
+	</div>
+	## script.
+	<script>
+		AUI().ready('aui-carousel', function(A) 
+		{ 
+			new A.Carousel(
+			{ 
+    			contentBox: '#$idCarousel',
+    			activeIndex:0,
+    			#if($interval != "")
+    			intervalTime:$interval,
+    			#end
+                height:$containerHeightValue,
+                width:$containerWidthValue
+			}).render();
+			
+			var carousel = A.one('#$idCarousel');
+			var menuPause = carousel.one('a.carousel-menu-pause');
+			menuPause.get('parentNode').addClass('ts_pause');
+  			var menuPrevious = carousel.one('a.carousel-menu-prev');
+  			menuPrevious.get('parentNode').addClass('ts_previous');
+  			var menuNext = carousel.one('a.carousel-menu-next');
+			menuNext.get('parentNode').addClass('ts_next');
+			var menuIndex = carousel.all('a.carousel-menu-index');
+			menuIndex = menuIndex.get('parentNode').addClass('ts_index');			
+			
+		});
+	</script>
+#else
+	<div>Le diaporama ne contient pas d'images.</div>
+#end
+</section>
+
