@@ -1,6 +1,9 @@
 ## INCLUSION JAVASCRIPT 
-
+## default js
 #set( $jsFiles = ["jquery-1.10.2.min.js","jquery.li-scroller.1.0.js","jquery.blink.js","intranet.js"] )
 #foreach( $jsFile in $jsFiles )
 <script type="text/javascript" rel="javascript" src="$javascript_folder/$jsFile"></script>
 #end
+## bxslider
+<script type="text/javascript" rel="javascript" src="$javascript_folder/bxslider/jquery.bxslider.min.js"></script>
+<script type="text/javascript" rel="javascript" src="$javascript_folder/bxslider/widget-diapo-events.js"></script>
