@@ -1,0 +1,2 @@
+#Install velocity
+http://www.first8.nl/blog/velocity-editor-in-eclipse-luna/
