@@ -1,4 +1,4 @@
-package fr.exagone.collections.list;
+package fr.exagone.collections.map;
 
 import java.util.HashMap;
 import java.util.Map;
