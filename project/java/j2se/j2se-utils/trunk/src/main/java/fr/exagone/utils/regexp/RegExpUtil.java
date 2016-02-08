@@ -14,7 +14,8 @@ public class RegExpUtil {
 //		System.out.println("test 1 = " + substringByRegExp(SUBSTRING_BY_REGEXP_1));
 //		System.out.println("test 2 = " + substringByRegExp(SUBSTRING_BY_REGEXP_2));
 //		System.out.println("TransformToDam = " + transformToDam());
-		testNumeric();
+//		testNumeric();
+		testListSepByPointVirgule();
 	}
 
 	public static String substringByRegExp(String value){
@@ -56,6 +57,12 @@ public class RegExpUtil {
 	public static void testNumeric () {
 		String regex = "[0-9 ]+"; 
 		String data = "1997 1998 p"; 
+		System.out.println(data.matches(regex));
+	}
+	
+	public static void testListSepByPointVirgule () {
+		String regex = "[0-9;]+"; 
+		String data = "1997;1998 1999"; 
 		System.out.println(data.matches(regex));
 	}
 	
