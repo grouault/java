@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 public class UrlEncode {
 
+	private static final String chaineToEncodeWithQuote = "\"pensaon\"\"";
 	private static final String chaineToEncode = "{\"titre\":\"pinocchioUnitTest2\","
 			+ "\"description\":\"Un évènement à ne pas manquer\","
 			+ "\"linkWebsiteEvent\":\"http::sep::sep:www.jeuxvideo.com:sep:\","
@@ -16,8 +17,8 @@ public class UrlEncode {
 	
 	
 	public static void main(String[] args) {
-		encodeUrl(chaineToEncode);
-		decodeUrl( chaineToDecode );
+		encodeUrl(chaineToEncodeWithQuote);
+//		decodeUrl( chaineToDecode );
 	}
 	
 	public static void encodeUrl (final String value) {

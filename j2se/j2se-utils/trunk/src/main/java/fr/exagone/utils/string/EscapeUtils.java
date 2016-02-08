@@ -20,12 +20,21 @@ public class EscapeUtils {
 	public static final String CHAINE_CONTEXT = "hf%3D10%26l%3Dfr%26of%3Dflea%26q%3DPESTe%26s%3Dtext_relevance%26sl%3Dslestim%26start%3D0%26r%3Df%252Fstructures%252Fle%2Bpavillon%2Bdes%2Bsciences%26r%3Df%252Fregion%252Fi%26r%3Df%252Fsource%252Festim_structures";
 	public static final String CHAINE_CONTEXT_RESSOURCE = "hf%3D10%26l%3Dfr%26q%3Dgirafe%26s%3Dtext_relevance%26sl%3Dslestim%26start%3D0%26r%3Df%252Fsource%252Festim_bdr%26r%3Df%252Faccessibilite%252Facs_non%26r%3Df%252Ftype_doc%252Fvideo";
 	
+	public static final String JSON_VALUE = "{\"titi\":\"toto\"}";
+	
 	public static void main(String[] args) {
 //		escapeHtml(chaineTest);
 //		escapeHtml(chaineTest2);
-		unescapeChaine( CHAINE_CONTEXT );
-		unescapeChaine( CHAINE_CONTEXT_RESSOURCE );
+//		unescapeChaine( CHAINE_CONTEXT );
+//		unescapeChaine( CHAINE_CONTEXT_RESSOURCE );
+		escapeJson(JSON_VALUE);
 		
+	}
+	
+	
+	public static void escapeJson (final String value) {
+		String jsonValue = StringEscapeUtils.escapeJavaScript(value);
+		System.out.println(jsonValue);
 	}
 	
 	public static void escapeHtml(final String value) {
