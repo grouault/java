@@ -1,4 +1,4 @@
-package fr.exagone.collections.map;
+package fr.exagone.jse.collections.map;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
