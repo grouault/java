@@ -2,7 +2,7 @@ package fr.exagone.jse.thread;
 
 
 /**
- * Création de thread en utilisant l'interfacae Runnable.
+ * Crï¿½ation de thread en utilisant l'interfacae Runnable.
  * @author Gildas
  *
  */
@@ -16,7 +16,6 @@ public class ThreadRunnable implements Runnable{
 		this.id = strId;
 	}
 	
-	@Override
 	public void run() {
 		try {
 			Thread.sleep(this.time);
