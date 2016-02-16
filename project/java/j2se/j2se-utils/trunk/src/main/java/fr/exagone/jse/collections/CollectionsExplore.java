@@ -16,8 +16,8 @@ public class CollectionsExplore {
 	
 	public static void main(String[] args) {
 		Personne p1 = new Personne("ROUAULT", "Gildas");
-		Personne p2 = new Personne("ROUAULT", "Renée");
-		Personne p3 = new Personne("GUERIN", "Aurélie");
+		Personne p2 = new Personne("ROUAULT", "RenÃ©e");
+		Personne p3 = new Personne("GUERIN", "AurÃ©lie");
 
 		List<Personne> lstPersonne = new ArrayList<Personne>();
 		lstPersonne.add(p1);

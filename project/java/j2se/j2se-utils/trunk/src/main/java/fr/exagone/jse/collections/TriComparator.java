@@ -31,18 +31,20 @@ public class TriComparator implements Comparator<Personne> {
 
 	public static void main(String[] args) {
 		Personne p1 = new Personne("ROUAULT", "Gildas");
-		Personne p2 = new Personne("ROUAULT", "Ren�e");
-		Personne p3 = new Personne("GUERIN", "Aur�lie");
-
+		Personne p2 = new Personne("ROUAULT", "Renée");
+		Personne p3 = new Personne("GUERIN", "Aurélie");
+		Personne p4 = new Personne("ROUAULT", "Marcel");
+		
 		List<Personne> lstPersonne = new ArrayList<Personne>();
 		lstPersonne.add(p1);
 		lstPersonne.add(p2);
 		lstPersonne.add(p3);
+		lstPersonne.add(p4);
 
 		// iteration initial
 		Collections.sort(lstPersonne);
 		System.out
-				.println("Liste tri�e avec la m�thode comarable de la classe Personne");
+				.println("Liste triée avec la méthode comarable de la classe Personne");
 		for (Iterator<Personne> iterator = lstPersonne.iterator(); iterator
 				.hasNext();) {
 			Personne currentPersonne = iterator.next();
@@ -50,11 +52,11 @@ public class TriComparator implements Comparator<Personne> {
 		}
 		System.out.println("Max:" + (Collections.max(lstPersonne)).getPrenom());
 
-		// affichage apr�s tri
+		// affichage aprés tri
 		System.out
 				.println("-----------------------------------------------------------");
 		Collections.sort(lstPersonne, new TriComparator());
-		System.out.println("Liste tri�e: ordre d�croissant du comparateur");
+		System.out.println("Liste triée: ordre décroissant du comparateur");
 		for (Iterator<Personne> iterator = lstPersonne.iterator(); iterator
 				.hasNext();) {
 			Personne currentPersonne = (Personne) iterator.next();
