@@ -1,4 +1,4 @@
-package fr.exagone.collections.list;
+package fr.exagone.jse.collections.list;
 
 import java.util.Comparator;
 
