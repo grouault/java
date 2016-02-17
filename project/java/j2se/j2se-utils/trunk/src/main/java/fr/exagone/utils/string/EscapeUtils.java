@@ -22,6 +22,10 @@ public class EscapeUtils {
 	
 	public static final String JSON_VALUE = "{\"titi\":\"toto\"}";
 	
+	
+	
+	public static final String JSON_VALUE_TEST = "{\"timeline\":{\"headline\":\"Evenements a venir\",\"type\":\"default\",\"texte\":\"Liste des evenements a venir\",\"date\":[{\"startDate\":\"2014,10,22\",\"endDate\":\"2017,08,24\",\"headline\":\"<a href=\\\"http://dev.estim-science.fr/web/estim/agenda/-/evenements/import%20img2iopiopipo/1104\\\">Import IMG2iopiopipo</a>\",\"text\":\"<a href=\\\"http://dev.estim-science.fr/web/estim/annuaire/structure/-/structures/universcience/26221\\\">UNIVERSCIENCE</a>\",\"asset\":{\"media\":\"http://dev.estim-science.fr/image/image_gallery?img_id=40213\",\"thumbnail\":\"http://dev.estim-science.fr/image/image_gallery?img_id=40213\",\"credit\":\"\",\"caption\":\"\"}},{\"startDate\":\"2014,05,15\",\"endDate\":\"2016,05,07\",\"headline\":\"<a href=\\\"http://dev.estim-science.fr/web/estim/agenda/-/evenements/test-bug-3102-1/2401\\\">test-bug-3102-1</a>\",\"text\":\"<a href=\\\"http://dev.estim-science.fr/web/estim/annuaire/structure/-/structures/universcience/26221\\\">UNIVERSCIENCE</a>\",\"asset\":{\"media\":\"http://dev.estim-science.fr/image/image_gallery?img_id=59004\",\"thumbnail\":\"http://dev.estim-science.fr/image/image_gallery?img_id=59004\",\"credit\":\"\",\"caption\":\"\"}}]}}";
+	
 	public static void main(String[] args) {
 //		escapeHtml(chaineTest);
 //		escapeHtml(chaineTest2);
