@@ -4,23 +4,27 @@
 
   <display-name>general-portlet</display-name>
     
+    <!-- 
+    Context Spring. 
+    Chargement des contexte spring.
+    -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
     <context-param>
         <param-name>log4jConfigLocation</param-name>
         <param-value>log4j.xml</param-value>
     </context-param>
     
-    <!--  Servlet de rendu -->
+    <!--  
+    Servlet de rendu
+    Config. spring : jstl-view et autres...
+    -->
     <servlet>
         <servlet-name>viewRendererServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-
-    <!-- Mapping du rendu -->
     <servlet-mapping>
         <servlet-name>viewRendererServlet</servlet-name>
         <url-pattern>/WEB-INF/servlet/view</url-pattern>
