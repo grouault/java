@@ -1,12 +1,5 @@
 package fr.exagone.jse.collections;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
-import fr.exagone.metier.Personne;
 
 /**
  * Classe triant une liste de personne dans un ordre d�coissant � partir d'un
@@ -16,11 +9,13 @@ import fr.exagone.metier.Personne;
  * @author Gildas
  * 
  */
-public class TriComparator implements Comparator<Personne> {
+public class TriComparator {
+//public class TriComparator implements Comparator<> {
 
 	/**
 	 * Trier les personne dans un ordre d�croissant
 	 */
+	/*
 	public int compare(Personne p1, Personne p2) {
 		int result = p2.getNom().compareToIgnoreCase(p1.getNom());
 		if (result == 0) {
@@ -67,5 +62,5 @@ public class TriComparator implements Comparator<Personne> {
 						.getPrenom());
 
 	}
-
+	*/
 }
