@@ -5,10 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
-import eni.jse.tp.bd.preparedStatement.Employe;
-import fr.exagone.metier.Personne;
 
 public class TestConnexionOracle {
 
@@ -26,7 +22,7 @@ public class TestConnexionOracle {
 			String user = "factory";
 			String mdp = "factory";
 			connexion = DriverManager.getConnection(urlConnection, user, mdp);
-			System.out.println("Connexion établie!");
+			System.out.println("Connexion ï¿½tablie!");
 
 			String strSql = "SELECT * FROM EMPLOYE WHERE DNO=?";
 			PreparedStatement pstatement = connexion.prepareStatement(strSql);
@@ -46,7 +42,7 @@ public class TestConnexionOracle {
 			if (connexion!=null) {
 				try {
 					connexion.close();
-					System.out.println("connection fermée!");
+					System.out.println("connection fermï¿½e!");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
