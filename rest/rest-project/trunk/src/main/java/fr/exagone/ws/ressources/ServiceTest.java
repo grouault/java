@@ -13,13 +13,23 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.exagone.entities.TitreMusique;
-
+/*
+ * Urls : 
+ * http://websystique.com/springmvc/spring-mvc-4-angularjs-example/
+ * http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html
+ * 
+ */
 @Path("ServiceTest")
 @Component
 public class ServiceTest {
-
+	
+	/*
+	 * http://localhost:8080/rest-project/api/ServiceTest/testStatusCree
+	*/
 	@GET
 	@Path("/testStatusCree")
 	@Produces({ "application/javascript", MediaType.APPLICATION_JSON })
@@ -38,8 +48,8 @@ public class ServiceTest {
 			*/
 			HttpHeaders httpHeaders = new HttpHeaders();
 			httpHeaders.add("Status", String.valueOf(HttpStatus.CREATED));
+			httpHeaders.add("Content-Type", "application/json");
 			ResponseEntity<TitreMusique> response = new ResponseEntity<TitreMusique>(monTitreMusique, httpHeaders, HttpStatus.CREATED);
-
 			return response;
 			
 		} catch (Exception e) {
@@ -51,6 +61,9 @@ public class ServiceTest {
 		}
 	}
 	
+	/*
+	 * http://localhost:8080/rest-project/api/ServiceTest/testResponseStatutCree
+	 */
 	@GET
 	@Path("/testResponseStatutCree")
 	@Produces({ "application/javascript", MediaType.APPLICATION_JSON })
