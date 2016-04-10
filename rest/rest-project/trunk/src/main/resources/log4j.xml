@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="true">
+
+
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%12.12d{HH\:mm\:ss,SSS} %X{request_id} %5p - %C{1}(%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<root>
+		<priority value="WARN" />
+		<appender-ref ref="console" />
+	</root>
+
+	<logger name="org.springframework">
+		<level value="warn" />
+	</logger>
+
+	<logger name="org.hibernate">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.engie.aurora">
+		<level value="debug" />
+	</logger>
+
+	<logger name="org.apache.commons.beanutils">
+		<level value="warn" />
+	</logger>
+
+
+</log4j:configuration>
