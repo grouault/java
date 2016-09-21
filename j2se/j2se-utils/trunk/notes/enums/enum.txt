@@ -2,7 +2,7 @@
 ##
 http://download.oracle.com/javase/1,5.0/docs/guide/language/enums.html
 
-# Définition.
+# Définitions.
 ##
 Une enumeration java est une classe qui définit un sous ensemble de constantes dont le type est la classe elle-même.
 Il est permis d'ajouter à type enum : 
