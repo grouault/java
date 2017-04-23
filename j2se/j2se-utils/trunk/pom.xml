@@ -95,9 +95,9 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>fr.exagone</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>14</version>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
