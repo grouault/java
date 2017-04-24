@@ -93,11 +93,10 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
 		<dependency>
-			<groupId>fr.exagone</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>14</version>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -107,16 +106,14 @@
 			<version>3.6</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>	
-        <dependency>
+		</dependency>		    
+</dependencies>
+       <dependency>
             <groupId>org.jasypt</groupId>
             <artifactId>jasypt</artifactId>
             <version>1.5</version>
             <scope>compile</scope>
-        </dependency>
-			    
-  </dependencies>
-  
+        </dependency>	  
   <repositories>
 	<repository>
 		<id>codehaus</id>
