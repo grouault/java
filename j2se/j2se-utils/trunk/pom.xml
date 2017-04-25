@@ -106,24 +106,15 @@
 			<version>3.6</version>
 			<type>jar</type>
 			<scope>compile</scope>
-<<<<<<< HEAD
-		</dependency>
-=======
-		</dependency>		    
-</dependencies>
->>>>>>> 7d01fb0b98021ed95f62277443dec0e26a320b05
+		</dependency>	    
        <dependency>
             <groupId>org.jasypt</groupId>
             <artifactId>jasypt</artifactId>
             <version>1.5</version>
             <scope>compile</scope>
-<<<<<<< HEAD
         </dependency>				    
   </dependencies>
-  
-=======
-        </dependency>	  
->>>>>>> 7d01fb0b98021ed95f62277443dec0e26a320b05
+
   <repositories>
 	<repository>
 		<id>codehaus</id>
