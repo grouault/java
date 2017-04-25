@@ -1,0 +1,3 @@
+# URL.
+http://peaktechie.blogspot.fr/2011/09/commons-logging-tutorial.html
+http://gfx.developpez.com/tutoriel/java/log4j/
