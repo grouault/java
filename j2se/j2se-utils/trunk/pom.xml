@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
-			<version>2.3</version>
+			<version>2.4</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -93,7 +93,6 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
@@ -107,15 +106,24 @@
 			<version>3.6</version>
 			<type>jar</type>
 			<scope>compile</scope>
+<<<<<<< HEAD
 		</dependency>
+=======
+		</dependency>		    
+</dependencies>
+>>>>>>> 7d01fb0b98021ed95f62277443dec0e26a320b05
        <dependency>
             <groupId>org.jasypt</groupId>
             <artifactId>jasypt</artifactId>
             <version>1.5</version>
             <scope>compile</scope>
+<<<<<<< HEAD
         </dependency>				    
   </dependencies>
   
+=======
+        </dependency>	  
+>>>>>>> 7d01fb0b98021ed95f62277443dec0e26a320b05
   <repositories>
 	<repository>
 		<id>codehaus</id>
