@@ -1,0 +1,7 @@
+# commande à lancer pour lancer la migration
+java -classpath exagone.utils-0.0.1-SNAPSHOT.jar fr.exagone.utils.UtilsTest
+
+# sgbdLauncher
+java -classpath exagone.utils-0.0.1-SNAPSHOT.jar fr.exagone.main.SgbdLauncher
+java -classpath exagone.utils-0.0.1-SNAPSHOT-jar-with-dependencies.jar fr.exagone.main.SgbdLauncher
+
