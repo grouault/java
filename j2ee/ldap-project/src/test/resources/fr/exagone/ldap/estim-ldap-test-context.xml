@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="       
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+   		   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="url" value="ldap://localhost:389" />
+        <property name="base" value="dc=exagone,dc=fr" />
+        <property name="userDn" value="cn=Manager,dc=exagone,dc=fr" />
+        <property name="password" value="secret" />
+    </bean>
+
+    <context:annotation-config />
+    <context:component-scan base-package="fr.exagone" />
+
+    <bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+        <constructor-arg ref="contextSource" />
+    </bean>
+    
+    <bean id="ldapUserMapper" class="fr.exagone.ldap.mapper.LdapUserMapper" />
+    
+    <bean id="ldapUserManager" class="fr.exagone.ldap.manager.impl.OpenLdapUserManagerImpl">
+        <property name="ldapTemplate" ref="ldapTemplate" />
+        <property name="ldapUserMapper" ref="ldapUserMapper" />
+    </bean>
+		
+    <!--  configuration des jeux de test -->
+    <import resource="ldapuser-jeu-test.xml" />
+    
+</beans>		   
