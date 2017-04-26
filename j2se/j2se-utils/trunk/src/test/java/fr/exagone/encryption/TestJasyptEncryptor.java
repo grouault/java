@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
-import eni.jse.tp.langage.TestCalcul;
 import fr.exagone.jse.exception.PwdEncryptorException;
 import junit.framework.Assert;
 
