@@ -1,3 +1,29 @@
 # URL.
 http://peaktechie.blogspot.fr/2011/09/commons-logging-tutorial.html
 http://gfx.developpez.com/tutoriel/java/log4j/
+
+## Configuration
+## différent appender et différentes catégories
+## ==> Permet de sortir category par Appender
+#####
+# For JBoss: Avoid to setup log4j outside $JBOSS_HOME/server/default/deploy/log4j.xml
+# For all other servers: Comment out the Log4J listener in web.xml too
+log4j.rootCategory=DEBUG, stdout
+log4j.category.com.axyus.sursaud.sgbd.statement	=INFO, requete
+log4j.category.com.axyus.sursaud.utils=INFO, result
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d %p [%c] - <%m>%n
+
+log4j.appender.requete=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.requete.File=d:\\logs\\sursaud\\password\\requete.log
+log4j.appender.requete.DatePattern='_'yyyy-MM-dd-HH-mm
+log4j.appender.requete.layout=org.apache.log4j.PatternLayout
+log4j.appender.requete.layout.ConversionPattern=%m%n
+
+log4j.appender.result=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.result.File=d:\\logs\\sursaud\\password\\result.log
+log4j.appender.result.DatePattern='_'yyyy-MM-dd-HH-mm
+log4j.appender.result.layout=org.apache.log4j.PatternLayout
+log4j.appender.result.layout.ConversionPattern=%m%n
