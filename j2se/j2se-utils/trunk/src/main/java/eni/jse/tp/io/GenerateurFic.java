@@ -1,5 +1,6 @@
 package eni.jse.tp.io;
 
+import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,6 +20,7 @@ public class GenerateurFic {
 
 		DataOutputStream dos = null;
 		File objFichier = null;
+		BufferedOutputStream bos = null;
 		
 		try{
 			
@@ -29,20 +31,20 @@ public class GenerateurFic {
 				objFichier.createNewFile();
 			}
 			
-			//creation du flux d'écriture vers le fichier
-			dos = new DataOutputStream(new FileOutputStream(objFichier));
+			//creation du flux d'ï¿½criture vers le fichier
+			dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(objFichier)));
 			
 			if(tabEntier.length>0){
-				for (int i = 0; i < tabEntier.length; i++) {
-					dos.writeInt(tabEntier[i]);//ecriture de la valeur dans le fichier.
+				for (int value : tabEntier) {
+					dos.writeInt(value);//ecriture de la valeur dans le fichier.
 				}
 			}
 			
 		} catch (FileNotFoundException e) {
-			System.out.println("erreur d'accès au fichier: ");
+			System.out.println("erreur d'accÃ¨s au fichier: ");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("erreur d'entrée sortie: ");
+			System.out.println("erreur d'entrÃ©e sortie: ");
 			e.printStackTrace();
 		} finally {	
 			try {
@@ -76,20 +78,20 @@ public class GenerateurFic {
 				objFichier.createNewFile();
 			}
 			
-			//creation d'un flux d'écriture vers le fichier.
+			//creation d'un flux d'Ã©criture vers le fichier.
 			os = new FileOutputStream(objFichier);
 			DataOutputStream dos = new DataOutputStream(os);
 			
 			if(tabChar.length>0){
-				for (int i = 0; i < tabChar.length; i++) {
-					dos.writeChar(tabChar[i]);//ecriture de la valeur dans le fichier.
+				for (int value: tabChar) {
+					dos.writeChar(value);//ecriture de la valeur dans le fichier.
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("erreur d'accès au fichier: ");
+			System.out.println("erreur d'accï¿½s au fichier: ");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("erreur d'entrée sortie: ");
+			System.out.println("erreur d'entrï¿½e sortie: ");
 			e.printStackTrace();
 		} finally {	
 			try {
@@ -109,24 +111,39 @@ public class GenerateurFic {
 	 */
 	public static void main(String [] args){
 	
+
+		
 			/**
-			 * test de la méthode StockerNombre
+			 * test de la mÃ©thode StockerNombre
 			 */
 			GenerateurFic gf = new GenerateurFic();
 			int[] tabOperande1 = {1, 12, 24, 25, 26};
-			String fichierOperande1 = "d:/devs/tp-eni-jse/io/operande1.dat";
+			String fichierOperande1 = buildPathFileName("operande1.dat");
 			gf.stockerNombres(fichierOperande1, tabOperande1);
 			
-			String fichierOperateur = "d:/devs/tp-eni-jse/io/operateur.dat";
+			String fichierOperateur = buildPathFileName("operateur.dat");
 			char[] tabChar = {'+', '-', '*', '/', '+'}; 
 			gf.stockerCar(fichierOperateur, tabChar);
 			
 			int[] tabOperande2 = {10, 10, 10, 10, 10};
-			String fichierOperande2 = "d:/devs/tp-eni-jse/io/operande2.dat";
+			String fichierOperande2 = buildPathFileName("operande2.dat");
 			gf.stockerNombres(fichierOperande2, tabOperande2);
 			
-			System.out.println("Création des fichiers avec succès!");
+			System.out.println("CrÃ©ation des fichiers avec succÃ¨s!");
 			
 
+	}
+	
+	public static String buildPathFileName(String fileName){
+		StringBuilder toReturn = new StringBuilder();
+		File basedir = new File(System.getProperty("basedir", "")).getAbsoluteFile();
+		toReturn.append(basedir.getPath()).append(File.separator)
+			.append("files").append(File.separator)
+			.append("io").append(File.separator)
+			.append("eni").append(File.separator)
+			.append(fileName);
+		System.out.println("[buildPathFileName = ] " + toReturn.toString());
+		return toReturn.toString();
+		
 	}
 }

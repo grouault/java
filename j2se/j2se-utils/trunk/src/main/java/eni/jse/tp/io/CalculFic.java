@@ -10,7 +10,7 @@ import java.io.IOException;
 public class CalculFic {
 
 	/**
-	 * methode permettant de faire les calculs à partir des fichiers.
+	 * methode permettant de faire les calculs ï¿½ partir des fichiers.
 	 * @param pOperande1
 	 * @param pOperateur
 	 * @param pOperande2
@@ -35,13 +35,13 @@ public class CalculFic {
 				disOperande2 = new DataInputStream(new FileInputStream(fileOperande2));
 				disOperateur = new DataInputStream(new FileInputStream(fileOperateur));
 				
-//				lecture en parallèle
+//				lecture en parallÃ¨le
 				while (true){
-//					lecture de l'opérateur
+//					lecture de l'opï¿½rateur
 					char operateur  = disOperateur.readChar();
-//					lecture de l'opérande1
+//					lecture de l'opï¿½rande1
 					int operande1 = disOperande1.readInt();
-//					lecture de l'opérande
+//					lecture de l'opï¿½rande
 					int operande2 = disOperande2.readInt();
 					
 					float res;
@@ -70,7 +70,8 @@ public class CalculFic {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (EOFException e){
-				// Traitement normal
+				// Traitement normal - Fin de fichier.
+				System.out.println("Fin de fichier");
 			}catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -84,6 +85,8 @@ public class CalculFic {
 					e.printStackTrace();
 				} 
 			}
+		} else {
+			System.out.println("Les fichiers n'existent pas.");
 		}
 
 	}
@@ -94,13 +97,14 @@ public class CalculFic {
 	 */
 	public static void main(String[] args){
 		
-		String strFileOperande1 = "d:/devs/tp-eni-jse/io/operande1.dat";
-		String strFileOperande2 = "d:/devs/tp-eni-jse/io/operande2.dat";
-		String strFileOperateur = "d:/devs/tp-eni-jse/io/operateur.dat";
+		String strFileOperande1 = GenerateurFic.buildPathFileName("operande1.dat") ;
+		String strFileOperande2 = GenerateurFic.buildPathFileName("operande2.dat");
+		String strFileOperateur = GenerateurFic.buildPathFileName("operateur.dat");
 		
 		CalculFic objCalculFic = new CalculFic();
+		System.out.println("Debut");
 		objCalculFic.operationFichiers(strFileOperande1, strFileOperateur, strFileOperande2);
-
+		System.out.println("fin");
 		
 	}
 	
