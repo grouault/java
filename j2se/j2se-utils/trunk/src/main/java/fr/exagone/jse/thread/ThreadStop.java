@@ -1,10 +1,10 @@
 package fr.exagone.jse.thread;
 /**
- * Arrêter un thread.
- * Pour arrêter un thread, il est préferrable de passer par
+ * Arrï¿½ter un thread.
+ * Pour arrï¿½ter un thread, il est prï¿½ferrable de passer par
  * un drapeau.
  * Dans le thread, on boucle tant que le drapeau vaut vrai.
- * A partir du programme principal ou autre thread, on met à jour
+ * A partir du programme principal ou autre thread, on met ï¿½ jour
  * le drapeau du thread que l'on veut interrompre.
  * @author Gildas
  *
@@ -17,13 +17,13 @@ public class ThreadStop extends Thread{
 	public void run() {
 		while (bRun) {
 			try {
-				System.out.println("Thread Running");
-				this.sleep(500);
+				System.out.println("Thread stop Running");
+				ThreadStop.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Thread finished.");
+		System.out.println("Thread stop finished.");
 	}
 
 	/**
@@ -34,26 +34,26 @@ public class ThreadStop extends Thread{
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Programme prinicpal: début");
+		System.out.println("Programme principal: dÃ©but");
 		ThreadStop thread1 = new ThreadStop();
 		thread1.start();
 		try {
 			Thread.sleep(2000);
-			System.out.println("Arrêt du thread");
+			System.out.println("Arret du thread");
 			thread1.setBRun(false);
 			Thread.sleep(1000);
 //			thread1.stop();
 //			Thread.sleep(1000);
-//			System.out.println("Démarrage du thread");
+//			System.out.println("Dï¿½marrage du thread");
 //			thread1.start();
 //			Thread.sleep(2000);
-//			System.out.println("Arrêt du thread");
+//			System.out.println("Arrï¿½t du thread");
 //			thread1.setBRun(false);
 //			Thread.sleep(1000);
 	
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Programme principal: fin");
+		System.out.println("Programme princial: fin");
 	}
 }

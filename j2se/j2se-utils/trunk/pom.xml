@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>utils-project</name>
   
-      	<properties>
+	<properties>
 		<log4j.version>1.2.14</log4j.version>
 		<junit.version>4.10</junit.version>
 		<poi.version>3.6</poi.version>
@@ -93,13 +93,13 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
+		<!--  dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>
+		</dependency -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
