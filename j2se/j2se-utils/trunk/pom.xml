@@ -6,6 +6,8 @@
   <name>utils-project</name>
   
 	<properties>
+	  	<maven.compiler.source>1.8</maven.compiler.source>
+  		<maven.compiler.target>1.8</maven.compiler.target>
 		<log4j.version>1.2.14</log4j.version>
 		<junit.version>4.10</junit.version>
 		<poi.version>3.6</poi.version>
