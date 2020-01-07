@@ -13,8 +13,8 @@ list.parallelStream().forEach(element -> doWork(element));
 ## Stream-Operation
 - intermediate operations: return Stream<T> allow chaining
 - terminal operations: return a result of definite type
-Important : il est important de noter que les opérations que les opérations sur les flux
-ne changent pas la source
+Important : il est important de noter que les opérations sur les flux
+ne changent pas la source.
 
 ## Iterating
 - Permet de se substituer aux boucles: for, for-each, while.
