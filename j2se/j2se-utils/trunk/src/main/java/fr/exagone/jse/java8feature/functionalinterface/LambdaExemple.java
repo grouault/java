@@ -10,6 +10,7 @@ public class LambdaExemple {
 		testWithLambdaExpression();
 		testWithLambdaAsParameter();
 		testAsFunction();
+		testScopeLambda();
 	}
 	
 	/////////////////
@@ -22,6 +23,7 @@ public class LambdaExemple {
 	}
 	
 	public static void testAnonymousFonction() {
+		
 		// utilisation d'une fonction anonyme
 		SquareRoot squareRoot = new SquareRoot() {
 			@Override
@@ -29,7 +31,8 @@ public class LambdaExemple {
 				return Math.sqrt(n);
 			}
 		};
-		System.out.println("testAnonymousFonction() = " + squareRoot.findSquareRoot(16));		
+		System.out.println("testAnonymousFonction() = " + squareRoot.findSquareRoot(16));
+		
 	}
 
 	//////////////////
@@ -62,7 +65,12 @@ public class LambdaExemple {
 		Function<Integer, Double> fn = (n) -> (Math.sqrt(n));
 		System.out.println("testAsFunction = " + displayData(fn, 49));
 	}
-	
-	
+
+	////////////////////
+	// Test scope lambda
+	private static void testScopeLambda() {
+		UseFoo useFoo = new UseFoo();
+		System.out.println("testScopeLambda = " + useFoo.scopeExperiment());
+	}
 	
 }
