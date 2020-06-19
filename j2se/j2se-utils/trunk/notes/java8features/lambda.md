@@ -1,5 +1,9 @@
 ## Lambda
 
+### Définition
+Une lambda est une fonction anonyme qui peut être traitée en tant que citoyen de première classe, par exemple transmise à une méthode ou renvoyée à partir d’une méthode
+
+
 ### Garder les expressions lambda courtes et explicites
 * Si possible, utilisez des constructions d’une ligne au lieu d’un grand bloc de code.
 * Rappelez-vous lambdas devrait être une expression, pas un récit. 
