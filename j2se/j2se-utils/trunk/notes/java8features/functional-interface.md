@@ -4,9 +4,12 @@ https://www.baeldung.com/java-8-lambda-expressions-tips
 https://www.baeldung.com/java-8-functional-interfaces
 
 ## Functional Interface
-* Une interface fonctionnelle est une interface avec une seule méthode abstraite.
+Une interface fonctionnelle (functional interface) est basiquement une interface dans laquelle une seule méthode abstraite est définie. Elle doit respecter certaines contraintes :
 * Cela signifie que l'implémentation de l'interface ne représentera qu'un seul comportement.
-* Un point important à retenir est que l’interface fonctionnelle peut avoir un certains nombre de méthodes par défaut, mais une seule méthode abstraite.
+* elle ne doit avoir qu'une seule méthode déclarée abstraite
+* les méthodes définies dans la classe Object ne sont pas prises en compte comme étant des méthodes abstraites
+* toutes les méthodes doivent être public
+* elle peut avoir des méthodes par défaut et static
 
 ## Implémentation
 * implémentation par une classe d'implémentation

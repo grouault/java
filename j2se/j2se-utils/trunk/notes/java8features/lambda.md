@@ -1,5 +1,12 @@
 ## Lambda
 
+## urls
+https://www.jmdoudoux.fr/java/dej/chap-lambdas.htm#lambdas-4
+https://www.baeldung.com/java-8-functional-interfaces
+https://www.baeldung.com/java-8-lambda-expressions-tips
+https://www.baeldung.com/java-8-sort-lambda
+https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
+
 ### Définition
 Une lambda est une fonction anonyme qui peut être traitée en tant que citoyen de première classe, par exemple transmise à une méthode ou renvoyée à partir d’une méthode
 
