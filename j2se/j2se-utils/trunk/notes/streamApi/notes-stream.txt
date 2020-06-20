@@ -2,6 +2,8 @@
 ##
 https://www.baeldung.com/java-8-streams-introduction
 https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
+## source
+https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-streams-2/src/main/java/com/baeldung/reduce/application
 
 # Stream API
 ## Stream Creation
