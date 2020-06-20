@@ -38,15 +38,15 @@ public class StreamUtil {
 	}	
 	
 	public static void main(String[] args) {
-		StreamUtil.create();
-		StreamUtil.multiThreading();
-		StreamUtil.streamOperations();
-		StreamUtil.streamIterating();
+		// StreamUtil.create();
+		// StreamUtil.multiThreading();
+		// StreamUtil.streamOperations();
+		// StreamUtil.streamIterating();
 		StreamUtil.streamFiltering();
-		StreamUtil.streamMapping();
-		StreamUtil.streamMatching();
-		StreamUtil.streamReducing();
-		StreamUtil.streamCollecting();
+		// StreamUtil.streamMapping();
+		// StreamUtil.streamMatching();
+		// StreamUtil.streamReducing();
+		// StreamUtil.streamCollecting();
 	}
 	
 	public static void create() {
@@ -95,9 +95,13 @@ public class StreamUtil {
 	
 	
 	public static void streamFiltering() {
-		System.out.println("### STREAM FILTERING");
+		System.out.println("### STREAM FILTERING - 1");
 		System.out.println("Animaux dont le nom contient 'v':");
 		animals.stream().filter(a -> a.contains("v")).forEach(a->System.out.println(a));
+		System.out.println("### STREAM FILTERING - 2");
+		Stream<String> streamFilter = animals.stream().filter(element -> element.contains("m"));
+		streamFilter.forEach(elt -> System.out.println(elt));
+		
 	}
 
 	

@@ -5,18 +5,40 @@ https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
 ## source
 https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-streams-2/src/main/java/com/baeldung/reduce/application
 
+# STREAM
+Stream functionality contains classes for processing sequences of elements
+A stream() default method is added to the Collection interface and allows creating a Stream<T> 
+using any collection as an element source
+Stream<String> stream = list.stream();
+
 # Stream API
 ## Stream Creation
-Stream.of( ... ) / Arrays.stream( arr ) / colletion.stream()
+Stream.of( ... ) / Arrays.stream( arr ) / collection.stream()
 
 ## Multi-Threading
+The code below allows to run method doWork() 
+in parallel for every element of the stream :
 list.parallelStream().forEach(element -> doWork(element));
 
 ## Stream-Operation
+Il y a plusieurs opérations qui peuvent être exécutées sur un stream
 - intermediate operations: return Stream<T> allow chaining
 - terminal operations: return a result of definite type
-Important : il est important de noter que les opérations que les opérations sur les flux
-ne changent pas la source
+Important : il est important de noter que les opérations sur les flux
+ne changent pas la source.
+Exemple : 
+long count = list.stream().distinct().count();
+distinct => intermediate operation
+count => terminal operation
+
+Liste des opérations :
+----------------------
+- Iterating
+- Filtering
+- Mapping
+- Matching
+- Reduction
+- Collecting
 
 ## Iterating
 - Permet de se substituer aux boucles: for, for-each, while.
