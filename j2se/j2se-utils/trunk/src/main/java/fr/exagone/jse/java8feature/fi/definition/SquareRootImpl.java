@@ -1,4 +1,4 @@
-package fr.exagone.jse.java8feature.functionalinterface;
+package fr.exagone.jse.java8feature.fi.definition;
 
 public class SquareRootImpl implements SquareRoot {
 

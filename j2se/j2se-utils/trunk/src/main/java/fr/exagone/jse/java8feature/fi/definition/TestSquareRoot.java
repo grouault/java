@@ -1,8 +1,18 @@
-package fr.exagone.jse.java8feature.functionalinterface;
+package fr.exagone.jse.java8feature.fi.definition;
 
 import java.util.function.Function;
 
-public class LambdaExemple {
+/**
+ * Implémentation de l'interface-fonctionnelle SquareRoot
+ * - implémentation versus avant java-8 (classe d'implémentation et classe anonyme)
+ * - implémentation versus java-8 (lambda)
+ * -- interface fonctionnelle SquareRoot
+ * -- interface fonctionnelle Function<T,R>
+ * 
+ * @author gildas
+ *
+ */
+public class TestSquareRoot {
 
 	public static void main(String[] args) {
 		testBeforeJava8();
@@ -10,7 +20,6 @@ public class LambdaExemple {
 		testWithLambdaExpression();
 		testWithLambdaAsParameter();
 		testAsFunction();
-		testScopeLambda();
 	}
 	
 	/////////////////
@@ -43,7 +52,12 @@ public class LambdaExemple {
 	public static void testWithLambdaExpression() {
 		// implementation par fonction lambda
 		SquareRoot squareRoot = (n) -> (Math.sqrt(n));
+		SquareRoot squareRoot2 = (n) -> (Math.sqrt(n));
+		System.out.println("testWithLambdaExpression : squareRoot = " + squareRoot);
 		System.out.println("testWithLambdaExpression = " + squareRoot.findSquareRoot(25));
+		System.out.println("testWithLambdaExpression : squareRoot2 = " + squareRoot2);
+		System.out.println("testWithLambdaExpression = " + squareRoot2.findSquareRoot(25));
+		System.out.println("testWithLambdaExpression = lambda (obj) = " + squareRoot.equals(squareRoot2));
 	}
 
 	//////////////////////////////////////////////////////
@@ -66,11 +80,4 @@ public class LambdaExemple {
 		System.out.println("testAsFunction = " + displayData(fn, 49));
 	}
 
-	////////////////////
-	// Test scope lambda
-	private static void testScopeLambda() {
-		UseFoo useFoo = new UseFoo();
-		System.out.println("testScopeLambda = " + useFoo.scopeExperiment());
-	}
-	
 }

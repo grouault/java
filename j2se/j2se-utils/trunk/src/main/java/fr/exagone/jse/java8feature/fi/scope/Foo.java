@@ -1,4 +1,4 @@
-package fr.exagone.jse.java8feature.functionalinterface;
+package fr.exagone.jse.java8feature.fi.scope;
 
 @FunctionalInterface
 public interface Foo {

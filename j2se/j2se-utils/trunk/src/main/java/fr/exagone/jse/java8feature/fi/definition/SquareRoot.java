@@ -1,4 +1,4 @@
-package fr.exagone.jse.java8feature.functionalinterface;
+package fr.exagone.jse.java8feature.fi.definition;
 /**
  * interface fonctionnelle Square-Root
  * - accepte un input de type int et retourne une valeur de type double
