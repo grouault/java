@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SESSIONS>
+	<MESSAGES_FIN_SESSION>
+		<MESSAGE TEXTE="La session se termine dans 1 minute" TEMPS="20"/>
+		<MESSAGE TEXTE="La session se termine" TEMPS="10"/>
+		<MESSAGE TEXTE="Session terminée" TEMPS="0"/>
+	</MESSAGES_FIN_SESSION>
+	<POSTES>
+	<POSTE NOM="med215" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med216" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med217" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med218" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med219" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med220" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med221" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med222" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med223" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med224" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med225" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med226" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="2011120" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med227" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med228" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med229" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med230" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med231" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med232" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med233" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med234" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med235" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med236" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111206" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med117" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111207" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med118" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111207" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med119" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111207" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med120" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111207" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med121" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111207" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med122" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111207" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med123" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111207" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med124" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111207" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med534" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111208" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med535" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111208" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med536" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111208" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med537" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111208" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med538" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111208" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med540" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111208" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med539" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111208" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med541" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111208" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante1" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante2" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante3" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante4" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante5" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante6" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante7" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante8" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante9" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante10" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante11" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante12" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante13" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="sante14" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111205" date_fin="20111209" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med303" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111214" date_fin="20111214" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med308" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111214" date_fin="20111214" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med013" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111220" date_fin="20111220" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med014" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111220" date_fin="20111220" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med015" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111220" date_fin="20111220" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med016" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111220" date_fin="20111220" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med019" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111220" date_fin="20111220" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med020" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111220" date_fin="20111220" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med021" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111220" date_fin="20111220" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	<POSTE NOM="med022" ETAT_DEMARRAGE="bloqué">
+		<SESSION date_debut="20111220" date_fin="20111220" heure_debut="8:30" heure_fin="11:00" time_out="360"/>
+	</POSTE>
+	</POSTES>
+</SESSIONS>

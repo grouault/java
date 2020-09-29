@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<POSTE NOM="med215" ETAT_DEMARRAGE="bloqué">
-<SESSION date_debut="20110128" date_fin="20110131" heure_debut="9:30" heure_fin="11:30" time_out="30" jour="mardi,mercredi,jeudi,vendredi,samedi,dimanche" />
-<SESSION date_debut="" date_fin="" heure_debut="9:30" heure_fin="11:30" time_out="30" jour="vendredi,samedi" />
-</POSTE>
