@@ -1,7 +1,8 @@
 ## Lambda
 
 ## urls
-https://www.jmdoudoux.fr/java/dej/chap-lambdas.htm#lambdas-4
+https://www.jmdoudoux.fr/java/dej/chap-lambdas.html
+#lambdas-4
 https://www.baeldung.com/java-8-functional-interfaces
 https://www.baeldung.com/java-8-lambda-expressions-tips
 https://www.baeldung.com/java-8-sort-lambda

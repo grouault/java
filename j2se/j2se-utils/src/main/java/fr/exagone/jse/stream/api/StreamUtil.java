@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.poi.util.SystemOutLogger;
-
 public class StreamUtil {
 
 	public static String[] ARR_ABC = new String[]{"a", "b", "c"};

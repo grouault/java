@@ -21,7 +21,7 @@ in parallel for every element of the stream :
 list.parallelStream().forEach(element -> doWork(element));
 
 ## Stream-Operation
-Il y a plusieurs opérations qui peuvent être exécutées sur un stream
+Il y a plusieurs oprations qui peuvent être exécutées sur un stream
 - intermediate operations: return Stream<T> allow chaining
 - terminal operations: return a result of definite type
 Important : il est important de noter que les opérations sur les flux
