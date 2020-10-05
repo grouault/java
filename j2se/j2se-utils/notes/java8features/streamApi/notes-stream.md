@@ -2,6 +2,10 @@
 ##
 https://www.baeldung.com/java-8-streams-introduction
 https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
+
+https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
+https://www.baeldung.com/java-8-streams
+
 ## source
 https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-streams-2/src/main/java/com/baeldung/reduce/application
 
