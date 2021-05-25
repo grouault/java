@@ -23,6 +23,7 @@ public class TestFusion {
 		String relativePathFileCGV = relatifRessouceFolder + "cgv\\cgv.pdf";
 		// fichier FondBL
 		String relativePathFondBL= relatifRessouceFolder + "fondbl\\fond_ppf.jpg";
+		String relativePathFondBLDup= relatifRessouceFolder + "fondbl\\Fond5DUP.jpg";
 		// fichie de resultat
 		String relativePathResult = relatifRessouceFolder + "result\\bl-fond-cgv\\";
 		
@@ -34,6 +35,7 @@ public class TestFusion {
 		File fileBL = new File(baseDir, relativePathFileBL);
 		File fileCGV = new File(baseDir, relativePathFileCGV);
 		File fileFondBL = new File(baseDir, relativePathFondBL);
+		File fileFondBLDup = new File(baseDir, relativePathFondBLDup);
 		
 		Assert.assertTrue(fileBL.exists());
 		Assert.assertTrue(fileCGV.exists());
@@ -41,16 +43,24 @@ public class TestFusion {
 		
 		// url fichier de resultat
 		// String urlFichierResult = baseDir.getPath() + relativePathResult + fileBL.getName();
-		String urlFichierResult = baseDir.getPath() + relativePathResult + "test-gildas.pdf";
-		System.out.println("urlFichierResult = " + urlFichierResult);
+		String urlFichierAvecFontEtCgv = baseDir.getPath() + relativePathResult + "test-gildas.pdf";
+		String urlFichierAvecFond = baseDir.getPath() + relativePathResult + "test-avec-fond.pdf";
 		
-		// Fusion.
-		PdfBonLivraison.mergeAvecFondEtCgvALaFin(fileBL, fileFondBL, fileCGV, urlFichierResult);
-		File fileMerged = new File(urlFichierResult);
+		System.out.println("urlFichierAvecFontEtCgv = " + urlFichierAvecFontEtCgv);
 		
-		Assert.assertTrue(fileMerged.exists());
+		// Fusion. BL / Fond / Cgv
+		PdfBonLivraison.mergeAvecFondEtCgvALaFin(fileBL, fileFondBL, fileCGV, urlFichierAvecFontEtCgv);
+		File fileAvecFondEtCgv = new File(urlFichierAvecFontEtCgv);
+		Assert.assertTrue(fileAvecFondEtCgv.exists());
+		
+		// Fusion. BL / Fond
+		PdfBonLivraison.mergeAvecFond(fileBL, fileFondBLDup, urlFichierAvecFond);
+		File fileAvecFond = new File(urlFichierAvecFond);
+		Assert.assertTrue(fileAvecFond.exists());
 		
 	}
+	
+
 	
 	@Test
 	public void fusionSignature() {

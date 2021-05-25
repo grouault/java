@@ -122,6 +122,36 @@ public class PdfBonLivraison {
         
     }
     
+    public static void mergeAvecFond(File bonLivraison, File rectoFile, String pathDestination) {
+        try {
+        	
+            // lecture et définition du pdf de sortie
+            String originalPdfPath = bonLivraison.getAbsolutePath();
+            PdfReader reader = new PdfReader(originalPdfPath);
+            PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(pathDestination));
+
+            // construction de l'objet image fond (traiter ko)
+            String absolutePathFond = rectoFile.getAbsolutePath();
+            Image imgFond = Image.getInstance(absolutePathFond);
+            Rectangle pagesize = reader.getPageSize(1);
+            imgFond.scaleToFit(pagesize.getWidth(), pagesize.getHeight());
+            imgFond.setAbsolutePosition(0, 0);
+
+            // merge avec l'image de fond
+            for (int i = 1; i < reader.getNumberOfPages() + 1; i++) {
+                stamper.getUnderContent(i).addImage(imgFond);
+            }
+
+            // close
+            stamper.close();
+            reader.close();
+
+        } catch (IOException | DocumentException e) {
+        	System.out.println("Erreur lors de la fusion d'un PDF avec ses fonds");
+            // logger.log(Level.SEVERE, "Erreur lors de la fusion d'un PDF avec ses fonds", e);
+        }
+        
+    }
     
     public static void mergeAvecSignature(File pdfSourceFile, File signatureFile, String pathMergeFile)
             throws IOException, DocumentException {

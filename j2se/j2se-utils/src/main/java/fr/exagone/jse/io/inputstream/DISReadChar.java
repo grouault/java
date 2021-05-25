@@ -10,6 +10,7 @@ import java.io.InputStream;
 
 /**
  * Lecture du fichier operateur via un 
+ * 
  * DataInputStream.
  * @author Gildas
  *
@@ -21,7 +22,7 @@ public class DISReadChar {
 		try {
 			InputStream is = new FileInputStream(objFile);
 			DataInputStream dis = new DataInputStream(is);
-			System.out.println("Lecture par caractères: ");
+			System.out.println("Lecture par caractï¿½res: ");
 			for(char c=dis.readChar(); c!=-1; c=dis.readChar()){
 				System.out.println((char)c);
 			}			
