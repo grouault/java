@@ -26,7 +26,7 @@ public class MaClasse2Test extends TestCase {
 	
 	public void testCalculer() throws Exception{
 		assertEquals("TestCalculer - error", 2, mc2.calculer());
-		log.debug("[TestCalculer].");
+		log.info("[TestCalculer].");
 	}
 	
 	public void testSommer() throws Exception{
