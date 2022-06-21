@@ -1,22 +1,8 @@
-logging:
-  pattern.console: "%d{HH:mm:ss} %highlight(%-5level) %logger{15}.%M %msg%n"
-  level:
-    fr.exagone.demoflywaydb: DEBUG
-
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/flywaytest
-    username: postgres
-    password: admin
-  jpa:
-    shom-sql: true
-    hibernate.ddl-auto: validate
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
   flyway:
     enabled: true
     encoding: UTF-8
-    locations: classpath:db2/migration
+    locations: classpath:db/migration
     out-of-order: false
-    baseline-on-migrate: true
+    baselineOnMigrate: true
+    validateOnMigrate: false

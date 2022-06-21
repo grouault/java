@@ -1,0 +1,1 @@
+insert into utilisateur(id, nom, prenom, email) values (-1,'titi','toto','titi@toto.fr');
