@@ -25,7 +25,7 @@ public class UserRepositoryTest {
     @Test
     public void find_casNominal(){
         Utilisateur utilisateur = repository.find(-1L);
-        assertThat(utilisateur).as("mauvais film récupéré").isNull();
+        assertThat(utilisateur).as("utilisateur inexistant").isNotNull();
 
     }
 

@@ -4,5 +4,4 @@ spring:
     encoding: UTF-8
     locations: classpath:db/migration
     out-of-order: false
-    baselineOnMigrate: true
-    validateOnMigrate: false
+    baseline-on-migrate: true

@@ -27,6 +27,11 @@
     <logger name="org.hibernate.internal.SessionImpl" level="TRACE" />
     <logger name="org.hibernate.event.internal.DefaultFlushEntityEventListener" level="TRACE"/>
 
+    <!-- Flyway deb-->
+    <logger name="com.googlecode.flyway.core.migration" level="DEBUG"/>
+    <logger name="org.flywaydb.core.internal.*" level="DEBUG" />
+    <logger name="o.f.core.internal.command.DbMigrate" level="DEBUG" />
+
     <root level="WARN">
         <appender-ref ref="STDOUT" />
     </root>
