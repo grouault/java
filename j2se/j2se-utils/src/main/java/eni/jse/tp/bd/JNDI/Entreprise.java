@@ -18,7 +18,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+//import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import eni.jse.tp.bd.preparedStatement.Employe;
 
@@ -42,20 +42,28 @@ public class Entreprise {
 	}
 
 	public void etablirConnexion() {
-		try {
+		// try {
 			Properties env = System.getProperties();
 			env.put("java.naming.factory.initial",
 			        "com.sun.jndi.rmi.registry.RegistryContextFactory");
 			env.put("java.naming.provider.url","rmi://localhost:1099");
-			Context c = new InitialContext(env);	
-			MysqlDataSource ds = (MysqlDataSource) c.lookup("jdbc/BD1"); 
+			Context c = new InitialContext(env);
+			// MySqlDataSource => non prÃ©sent dans le ClassPath
+			/*
+			MysqlDataSource ds = (MysqlDataSource) c.lookup("jdbc/BD1");
 			this.connexion = ds.getConnection();
-		} catch (SQLException e) {
+
+		}
+		catch (SQLException e) {
+
 			e.printStackTrace();
-		} catch (NamingException e) {
+
+		}
+		catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 
 	}
 
@@ -147,7 +155,7 @@ public class Entreprise {
 					pStatement.setString(4, this.nomEntreprise);
 					pStatement.addBatch();
 				}
-				// on peut récupérer le résultat dans un tableau d'entier.
+				// on peut rï¿½cupï¿½rer le rï¿½sultat dans un tableau d'entier.
 				pStatement.executeBatch();
 				this.connexion.commit();
 				this.connexion.setAutoCommit(true);
@@ -197,48 +205,48 @@ public class Entreprise {
 
 	public static void main(String[] args) {
 		try {
-			// Création de l'entreprise
+			// Crï¿½ation de l'entreprise
 			Entreprise entrepriseP = new Entreprise("EXAGONE");
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-			// Création des employés.
-			// employé1
+			// Crï¿½ation des employï¿½s.
+			// employï¿½1
 			Date datenaissance = new Date(sdf.parse("20/8/1986").getTime());
 			Employe employe = new Employe("GUERIN", "AURELIE", datenaissance);
 
-			// employé2
+			// employï¿½2
 			Date datenaissance1 = new Date(sdf.parse("20/05/1975").getTime());
 			Employe employe1 = new Employe("GASTON", "HECTOR", datenaissance1);
 
-//			employé3
+//			employï¿½3
 			Employe employe3  = new Employe("ROUAULT","GILDAS", new Date(
 					sdf.parse("04/11/1976").getTime()));
 			
-			// Ajouter un employé
+			// Ajouter un employï¿½
 			// entrepriseP.ajouterEmploye(employe);
-			// System.out.println("Employé ajouté! : " + employe.toString());
+			// System.out.println("Employï¿½ ajoutï¿½! : " + employe.toString());
 
 			// Supprimer un employe
 			// entrepriseP.supprimerEmploye(employe);
-			// System.out.println("Suppression effectuée!");
+			// System.out.println("Suppression effectuï¿½e!");
 
-			// Ajouter une liste d'employés
+			// Ajouter une liste d'employï¿½s
 			List<Employe> listEmployes = new ArrayList<Employe>();
 			listEmployes.add(employe);
 			listEmployes.add(employe1);
 			listEmployes.add(employe3);
 			entrepriseP.ajouterEmployes(listEmployes);
 
-			// lister les employés
+			// lister les employï¿½s
 			List<Employe> listEmploye = entrepriseP.listeEmploye();
 			for (Iterator<Employe> iterator = listEmploye.iterator(); iterator
 					.hasNext();) {
 				System.out.println(((Employe) iterator.next()).toString());
 			}
 			
-			// liste des employés dont le nom est rouault
+			// liste des employï¿½s dont le nom est rouault
 			List<Employe> listEmployeRouault = entrepriseP.listeEmployeFamille("ROUAULT");
-			System.out.println("Liste des employés dont le nom est 'ROUAULT':");
+			System.out.println("Liste des employï¿½s dont le nom est 'ROUAULT':");
 			if(!listEmployeRouault.isEmpty()){	
 				for (Iterator<Employe> iterator = listEmployeRouault.iterator(); iterator
 						.hasNext();) {
@@ -246,7 +254,7 @@ public class Entreprise {
 				}
 			}
 			else{
-				System.out.println("Aucun employé porte ce nom.");
+				System.out.println("Aucun employï¿½ porte ce nom.");
 			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

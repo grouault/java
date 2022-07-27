@@ -1,8 +1,12 @@
 package fr.exagone.jse.stream.api;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class FindElementInList {
 
 }
+/*
 //Method 1: basic structures
 List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
 int integerToFind = 6;
@@ -21,3 +25,4 @@ User bobby = users.stream()
  .findFirst()
  .orElse(null);
 System.out.println("Bobby: " + bobby);
+ */
