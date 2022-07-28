@@ -25,6 +25,15 @@ public class CompteDAO {
         return  compteEntity;
     }
 
+    /*
+    public CompteEntity insert(CompteEntity compte) {
+
+        String sql = "INSERT INTO Compte(id, ) VALUES (? ,?, ?, ?)"
+
+
+        return compte;
+    }
+    */
 
     public CompteEntity find(Integer id, Connection connexion) {
 
