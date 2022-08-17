@@ -10,6 +10,7 @@
 * Question :
     * handleTransaction : Static ou Non ??
     * Faut-il avoir une Transaction sur un Select ??
+    * ==> Non.
 
 ### Généricité
 * Mettre en place la généricité
