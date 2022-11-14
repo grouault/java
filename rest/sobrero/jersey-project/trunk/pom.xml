@@ -89,7 +89,7 @@
     <properties>
         <jersey.version>2.7</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.springframework.version>4.2.4.RELEASE</org.springframework.version>
+        <org.springframework.version>4.2.7.RELEASE</org.springframework.version>
         <easymock-release-version>3.4</easymock-release-version>
     </properties>
 </project>
